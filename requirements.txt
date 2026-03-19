@@ -1,0 +1,101 @@
+# ============================================================
+# requirements.txt
+# ============================================================
+# Ce fichier liste toutes les bibliothèques Python dont le projet a besoin.
+#
+# Comment l'utiliser ?
+#   pip install -r requirements.txt
+#
+# C'est quoi une bibliothèque ?
+#   Un ensemble de fonctions déjà écrites par d'autres développeurs,
+#   qu'on peut réutiliser pour ne pas tout recoder from scratch.
+#   Exemple : pandas nous évite de coder notre propre système de tableaux.
+#
+# C'est quoi le >= après le nom ?
+#   >= 2.0.0 signifie "version 2.0.0 ou plus récente".
+#   On évite de fixer une version exacte (==) pour garder de la flexibilité,
+#   mais on fixe un minimum pour s'assurer que les fonctions qu'on utilise existent.
+# ============================================================
+
+
+# ── COLLECTE DE DONNÉES ─────────────────────────────────────
+
+# requests : envoyer des requêtes HTTP pour appeler l'API MPG officielle
+# C'est la bibliothèque standard pour "parler" à des APIs web en Python
+requests>=2.31.0
+
+# soccerdata : scraper automatiquement les stats de FBref et Understat
+# Evite de coder tout le scraping à la main
+soccerdata>=0.4.0
+
+# beautifulsoup4 : parser du HTML (utilisé en interne par soccerdata)
+beautifulsoup4>=4.12.0
+
+
+# ── MANIPULATION DE DONNÉES ──────────────────────────────────
+
+# pandas : LA bibliothèque de référence pour les tableaux de données en Python
+# On l'utilise partout : charger des CSV, filtrer, trier, fusionner des tableaux...
+pandas>=2.0.0
+
+# numpy : calculs mathématiques rapides (moyennes, normalisation, valeurs manquantes...)
+numpy>=1.24.0
+
+
+# ── OPTIMISATION ─────────────────────────────────────────────
+
+# pulp : résoudre des problèmes d'optimisation linéaire
+# Utilisé dans lineup.py pour trouver le meilleur XI avec contraintes de budget
+pulp>=2.7.0
+
+# scipy : boîte à outils scientifique (stats, optimisation avancée)
+# Utilisé comme complément à PuLP pour des analyses plus poussées
+scipy>=1.11.0
+
+
+# ── VISUALISATION ────────────────────────────────────────────
+
+# matplotlib : bibliothèque de graphiques de base en Python
+matplotlib>=3.7.0
+
+# seaborn : graphiques statistiques plus jolis, basée sur matplotlib
+seaborn>=0.12.0
+
+# plotly : graphiques interactifs (qu'on peut zoomer, filtrer dans le navigateur)
+# Très utile pour explorer les données dans les notebooks Jupyter
+plotly>=5.15.0
+
+
+# ── JUPYTER NOTEBOOKS ────────────────────────────────────────
+
+# jupyter : environnement de notebooks interactifs (fichiers .ipynb)
+# Idéal pour explorer les données et prototyper avant de coder des scripts
+jupyter>=1.0.0
+
+# ipykernel : permet à Jupyter de lancer du code Python dans les notebooks
+ipykernel>=6.25.0
+
+
+# ── UTILITAIRES ──────────────────────────────────────────────
+
+# python-dotenv : charger des variables d'environnement depuis un fichier .env
+# Utilisé pour stocker des infos sensibles (ex: clés API) sans les mettre dans le code
+python-dotenv>=1.0.0
+
+# tqdm : afficher des barres de progression dans le terminal
+# Très pratique pour les opérations longues (ex: téléchargement de données)
+tqdm>=4.65.0
+
+# loguru : afficher des messages de log colorés et informatifs dans le terminal
+# Remplace le print() basique avec des niveaux (INFO, WARNING, ERROR...)
+loguru>=0.7.0
+
+
+# ── TESTS ────────────────────────────────────────────────────
+
+# pytest : framework standard pour écrire et lancer des tests unitaires en Python
+pytest>=7.4.0
+
+# pytest-cov : mesure le pourcentage du code couvert par les tests
+# Utilisation : pytest tests/ --cov=src
+pytest-cov>=4.1.0

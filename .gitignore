@@ -1,0 +1,123 @@
+# ============================================================
+# .gitignore
+# ============================================================
+# Ce fichier indique à Git quels fichiers NE PAS versionner.
+#
+# Pourquoi certains fichiers ne doivent pas être sur GitHub ?
+#   1. Les données brutes     → trop volumineuses, se re-téléchargent facilement
+#   2. Les fichiers secrets   → mots de passe, clés API (JAMAIS sur GitHub !)
+#   3. Les fichiers générés   → caches, compilés, logs (inutiles pour les autres)
+#   4. Les envs virtuels      → chaque développeur crée le sien localement
+#
+# Syntaxe :
+#   fichier.txt       → ignore ce fichier précis
+#   *.log             → ignore tous les fichiers .log (le * = "n'importe quoi")
+#   dossier/          → ignore tout le contenu de ce dossier
+#   !fichier.txt      → exception : NE PAS ignorer ce fichier (le ! = "sauf")
+# ============================================================
+
+
+# ── ENVIRONNEMENT VIRTUEL ────────────────────────────────────
+# Le dossier venv/ contient Python + toutes les bibliothèques installées.
+# Chaque développeur doit créer le sien avec : python -m venv venv
+# Il peut peser plusieurs centaines de Mo → inutile de le versionner.
+venv/
+env/
+.venv/
+.env/
+ENV/
+
+
+# ── VARIABLES D'ENVIRONNEMENT ET SECRETS ────────────────────
+# ⚠️  CRITIQUE : ne JAMAIS committer ce fichier !
+# Le fichier .env peut contenir des clés API, mots de passe, tokens...
+# Si tu en crées un, mets-y tes infos sensibles et laisse Git l'ignorer.
+.env
+*.env
+.env.local
+.env.*.local
+
+
+# ── DONNÉES (trop volumineuses ou re-téléchargeables) ────────
+# Les données brutes se re-téléchargent via collect.py → pas besoin de les versionner.
+# On garde quand même les fichiers .gitkeep qui marquent les dossiers vides.
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+
+# ── PYTHON : fichiers générés automatiquement ────────────────
+# Python génère des fichiers .pyc (bytecode compilé) et des dossiers __pycache__
+# pour accélérer l'exécution. Ils sont régénérés automatiquement, inutile de les versionner.
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+
+# ── JUPYTER NOTEBOOKS : fichiers temporaires ────────────────
+# Les checkpoints sont des sauvegardes automatiques de Jupyter.
+# Elles peuvent être volumineuses et ne sont pas utiles sur GitHub.
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+
+# ── TESTS ET COUVERTURE DE CODE ──────────────────────────────
+# pytest génère ces dossiers lors de l'analyse de couverture de code.
+# Ils sont régénérés à chaque lancement de tests.
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+
+# ── LOGS ─────────────────────────────────────────────────────
+# Les fichiers de log enregistrent ce que le programme a fait.
+# Ils changent à chaque exécution → pas utile à versionner.
+*.log
+logs/
+
+
+# ── ÉDITEURS ET IDEs ─────────────────────────────────────────
+# Chaque développeur a ses propres paramètres d'éditeur.
+# On ne les impose pas aux autres en les mettant sur GitHub.
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+
+# ── SYSTÈME D'EXPLOITATION ───────────────────────────────────
+# Fichiers créés automatiquement par macOS, Windows ou Linux.
+# Complètement inutiles pour le projet.
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
