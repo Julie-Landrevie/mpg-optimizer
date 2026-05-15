@@ -73,8 +73,8 @@ div[data-testid="metric-container"] label {
     font-family: 'Syne', sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0f172a;
-    border-left: 4px solid #3b82f6;
+    color: #f1f5f9;
+    border-left: 4px solid #60a5fa;
     padding-left: 10px;
     margin: 20px 0 10px 0;
 }
@@ -213,8 +213,8 @@ st.markdown("""
 
 df_scored = df[df["avg_rating"].notna()]
 n_total   = len(df_scored)
-n_dispo   = len(df_scored[df_scored["status"] == "Disponible"])
-n_blesse  = len(df_scored[df_scored["status"] == "Blessé"])
+n_dispo   = len(df[df["status"] == "Disponible"])
+n_blesse  = len(df[df["status"] == "Blessé"])
 
 best_row   = df_scored.nlargest(1, "mpg_score").iloc[0] if n_total else None
 best_label = f"{best_row['player_name']} ({best_row['mpg_score']:.2f})" if best_row is not None else "—"
@@ -238,9 +238,10 @@ st.divider()
 # ONGLETS
 # ============================================================
 
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📊 Classement",
     "🔥 Pépites & Forme",
+    "🧠 Optimiseur XI",
     "🔍 Recherche",
     "📈 Statistiques",
 ])
@@ -386,8 +387,177 @@ with tab2:
         )
 
 
-# ── ONGLET 3 : Recherche ───────────────────────────────────
+
+
+# ── ONGLET 3 : Optimiseur XI ───────────────────────────────
 with tab3:
+    st.markdown('<div class="section-title">🧠 Construis ton meilleur XI</div>', unsafe_allow_html=True)
+    st.caption("L'optimiseur sélectionne les 11 joueurs qui maximisent le score total selon ton budget et ta formation.")
+
+    # ── Paramètres ──
+    col_params1, col_params2, col_params3 = st.columns(3)
+
+    with col_params1:
+        budget_xi = st.slider("Budget total (M€)", min_value=100, max_value=500, value=500, step=10)
+
+    with col_params2:
+        formation_options = {
+            "Automatique (meilleure)": None,
+            "4-4-2": (4, 4, 2),
+            "4-3-3": (4, 3, 3),
+            "4-5-1": (4, 5, 1),
+            "3-5-2": (3, 5, 2),
+            "3-4-3": (3, 4, 3),
+            "5-3-2": (5, 3, 2),
+            "5-4-1": (5, 4, 1),
+        }
+        formation_label = st.selectbox("Formation", list(formation_options.keys()))
+        selected_formation = formation_options[formation_label]
+
+    with col_params3:
+        only_available = st.checkbox("Joueurs disponibles uniquement", value=True)
+        min_games_xi = st.slider("Matchs joués minimum", 0, 20, 5)
+
+    # ── Joueurs à imposer / exclure ──
+    with st.expander("⚙️ Options avancées — Joueurs imposés / exclus"):
+        col_lock, col_excl = st.columns(2)
+        with col_lock:
+            st.caption("Joueurs obligatoires dans le XI")
+            locked_input = st.text_input("Noms séparés par des virgules", key="locked",
+                                          placeholder="Ex: Tolisso, Pagis")
+        with col_excl:
+            st.caption("Joueurs à exclure")
+            excluded_input = st.text_input("Noms séparés par des virgules", key="excluded",
+                                            placeholder="Ex: Greenwood, Dembélé")
+
+    locked_players   = [n.strip() for n in locked_input.split(",") if n.strip()] if "locked_input" in dir() else []
+    excluded_players = [n.strip() for n in excluded_input.split(",") if n.strip()] if "excluded_input" in dir() else []
+
+    # ── Bouton d'optimisation ──
+    if st.button("🚀 Générer le meilleur XI", type="primary", use_container_width=True):
+
+        # Préparation du dataset pour l'optimiseur
+        df_xi = df[df["avg_rating"].notna() & (df["games_played"] >= min_games_xi)].copy()
+
+        if only_available:
+            df_xi = df_xi[df_xi["status"] == "Disponible"]
+
+        # Exclusions
+        if excluded_players:
+            df_xi = df_xi[~df_xi["player_name"].isin(excluded_players)]
+
+        # Vérification qu'il y a assez de joueurs par poste
+        counts = df_xi.groupby("position").size()
+        ok = True
+        for pos, needed in [("GK", 1), ("DF", 3), ("MF", 3), ("FW", 1)]:
+            available = sum(counts.get(p, 0) for p in counts.index if p.startswith(pos))
+            if available < needed:
+                st.error(f"Pas assez de {pos} disponibles ({available} < {needed}). Élargis les filtres.")
+                ok = False
+
+        if ok:
+            try:
+                from src.optimization.lineup import optimize_xi
+
+                with st.spinner("Calcul du XI optimal..."):
+                    result = optimize_xi(
+                        df_xi,
+                        budget=budget_xi,
+                        formation=selected_formation,
+                        locked_players=locked_players,
+                        excluded_players=[],  # déjà filtrés
+                    )
+
+                if not result:
+                    st.error("❌ Aucune solution trouvée. Essaie d'augmenter le budget ou d'élargir les filtres.")
+                else:
+                    st.success(f"✅ XI optimal trouvé ! Formation **{result['formation']}** | Score total : **{result['total_score']:.2f}** | Budget utilisé : **{result['total_price']:.0f}M€** / {budget_xi}M€")
+
+                    players_df = result["players"].copy()
+                    players_df["club_name"] = players_df["team"].apply(get_club_name)
+
+                    # ── Affichage terrain ──
+                    st.markdown('<div class="section-title">🟢 Composition</div>', unsafe_allow_html=True)
+
+                    formation_str = result["formation"]  # ex: "4-3-3"
+                    n_def, n_mid, n_att = [int(x) for x in formation_str.split("-")]
+
+                    gks  = players_df[players_df["position"] == "GK"]
+                    defs = players_df[players_df["position"].str.startswith("DF")]
+                    mids = players_df[players_df["position"].str.startswith("MF")]
+                    atts = players_df[players_df["position"].str.startswith("FW")]
+
+                    def display_line(players_row, label):
+                        """Affiche une ligne de joueurs sur le terrain."""
+                        cols = st.columns(len(players_row))
+                        for i, (_, p) in enumerate(players_row.iterrows()):
+                            with cols[i]:
+                                score_color = "🟢" if p["mpg_score"] >= 7.5 else "🟡" if p["mpg_score"] >= 6 else "🔴"
+                                prenom = p.get("first_name", "")
+                                nom    = str(p.get("player_name", "") or "")
+                                nom_affiche = f"{str(prenom)[:1]}. {nom}" if pd.notna(prenom) and str(prenom).strip() else nom
+                                st.markdown(f"""
+                                <div style="text-align:center; background:#f0fdf4; border:1px solid #bbf7d0;
+                                            border-radius:10px; padding:8px 4px; margin:2px;">
+                                    <div style="font-size:1.2rem">{score_color}</div>
+                                    <div style="font-weight:700; font-size:0.82rem; color:#0f172a">{nom_affiche}</div>
+                                    <div style="font-size:0.70rem; color:#6b7280">{p['club_name']}</div>
+                                    <div style="font-size:0.72rem; color:#3b82f6">★ {p['mpg_score']:.1f}</div>
+                                    <div style="font-size:0.72rem; color:#9ca3af">{p['price']}M€</div>
+                                </div>
+                                """, unsafe_allow_html=True)
+
+                    # Terrain fond vert
+                    st.markdown("""
+                    <div style="background:linear-gradient(180deg,#166534 0%,#15803d 50%,#166534 100%);
+                                border-radius:16px; padding:16px; margin-bottom:16px;">
+                    """, unsafe_allow_html=True)
+
+                    st.markdown("**⚡ Attaquants**")
+                    display_line(atts, "FW")
+                    st.markdown("**⚙️ Milieux**")
+                    display_line(mids, "MF")
+                    st.markdown("**🛡️ Défenseurs**")
+                    display_line(defs, "DF")
+                    st.markdown("**🥅 Gardien**")
+                    display_line(gks, "GK")
+
+                    st.markdown("</div>", unsafe_allow_html=True)
+
+                    # ── Tableau récapitulatif ──
+                    st.markdown('<div class="section-title">📋 Détail du XI</div>', unsafe_allow_html=True)
+                    summary = players_df[["player_name", "first_name", "position", "club_name",
+                                          "avg_rating", "recent_form_avg", "mpg_score", "price", "status"]].rename(columns={
+                        "player_name": "Joueur", "first_name": "Prénom", "position": "Poste",
+                        "club_name": "Club", "avg_rating": "Note MPG", "recent_form_avg": "Forme",
+                        "mpg_score": "Score", "price": "Prix", "status": "Statut",
+                    })
+                    for c in ["Note MPG", "Forme", "Score"]:
+                        if c in summary.columns:
+                            summary[c] = summary[c].round(2)
+
+                    st.dataframe(summary, use_container_width=True, hide_index=True,
+                                 column_config={
+                                     "Score": st.column_config.ProgressColumn(
+                                         "Score", min_value=0, max_value=10, format="%.2f"
+                                     ),
+                                     "Prix": st.column_config.NumberColumn(format="%d M€"),
+                                 })
+
+                    # Budget restant
+                    budget_restant = budget_xi - result["total_price"]
+                    st.info(f"💰 Budget restant : **{budget_restant:.0f}M€** sur {budget_xi}M€")
+
+            except ImportError:
+                st.error("❌ Module d'optimisation non disponible. Vérifie que PuLP est installé : pip install pulp")
+            except Exception as e:
+                st.error(f"❌ Erreur : {e}")
+    else:
+        st.info("👆 Configure tes paramètres et clique sur **Générer le meilleur XI**")
+
+
+# ── ONGLET 4 : Recherche ───────────────────────────────────
+with tab4:
     st.markdown('<div class="section-title">🔍 Rechercher un joueur</div>', unsafe_allow_html=True)
     search = st.text_input("", placeholder="Ex: Tolisso, Pagis, Greenwood...")
 
@@ -434,8 +604,8 @@ with tab3:
         st.info("Tape au moins 2 lettres pour rechercher.")
 
 
-# ── ONGLET 4 : Statistiques ────────────────────────────────
-with tab4:
+# ── ONGLET 5 : Statistiques ────────────────────────────────
+with tab5:
     st.markdown('<div class="section-title">Vue d\'ensemble de la Ligue 1</div>', unsafe_allow_html=True)
 
     df_s = df[df["avg_rating"].notna() & (df["games_played"] >= 5)].copy()
