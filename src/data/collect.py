@@ -5,9 +5,9 @@ Ce fichier s'occupe de RÉCUPÉRER les données dont on a besoin.
 C'est la première étape du projet : sans données, pas d'analyse !
 
 On a 3 sources principales :
-  1. L'API officielle MPG  → notes des joueurs + cotations (prix)
-  2. FBref                 → statistiques détaillées des matchs (buts, passes, etc.)
-  3. Understat             → métriques avancées (xG, xA)
+  1. L'API officielle MPG  → notes des joueurs + cotations (prix) ✅ Fonctionne
+  2. FBref via CSV         → statistiques avancées (xG, xA, etc.) ✅ Via fichier CSV
+  3. Understat             → métriques encore plus précises (prévu plus tard)
 
 Vocabulaire utile :
   - xG (expected goals)   : probabilité qu'un tir finisse en but. Un joueur avec xG=10
@@ -24,7 +24,6 @@ Vocabulaire utile :
 
 import pandas as pd        # La bibliothèque principale pour manipuler des tableaux de données
 import requests            # Pour faire des requêtes HTTP (appeler des APIs, des sites web)
-import soccerdata as sd    # Bibliothèque spécialisée pour récupérer des stats de foot
 from loguru import logger  # Pour afficher des messages joliment colorés dans le terminal
 from pathlib import Path   # Pour gérer les chemins de fichiers de façon propre
 import unicodedata         # Pour normaliser les accents dans les noms (é → e, etc.)
@@ -48,8 +47,13 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 MPG_API_BASE = "https://api.mpg.football/api/data"
 
 # Identifiant de la Ligue 1 dans le système MPG
-# (chaque championnat a son propre code)
-MPG_LEAGUE_ID = "mpg_league_season_2024_1"  # Ligue 1 saison 2024-2025
+# "1" = Ligue 1 (vérifié en explorant l'API championship-clubs)
+MPG_LEAGUE_ID = "1"
+
+# Nom du fichier CSV FBref à placer dans data/raw/
+# Pour le générer : fbref.com/en/comps/13/stats/Ligue-1-Stats
+# → "Share & more" → "Get table as CSV" → copier dans un fichier .csv
+FBREF_CSV_FILENAME = "ligue1_stats_2025.csv"
 
 
 # ============================================================
@@ -63,7 +67,8 @@ def fetch_mpg_player_data(force_refresh: bool = False) -> pd.DataFrame:
     Ces données incluent :
       - La COTATION (prix) de chaque joueur en millions MPG
       - La NOTE MOYENNE sur la saison
-      - Le poste du joueur selon MPG (GK, DF, MF, FW)
+      - Les 5 DERNIÈRES NOTES journée par journée (forme récente !)
+      - Le total de buts, clean sheets, cartons...
       - Le statut (disponible, blessé, suspendu)
 
     Pourquoi c'est précieux ?
@@ -89,6 +94,7 @@ def fetch_mpg_player_data(force_refresh: bool = False) -> pd.DataFrame:
 
     try:
         # On construit l'URL de l'API MPG pour les joueurs de Ligue 1
+        # MPG_LEAGUE_ID = "1" correspond à la Ligue 1
         url = f"{MPG_API_BASE}/championship-players-pool/{MPG_LEAGUE_ID}"
 
         # headers = informations qu'on envoie pour se "présenter" au serveur
@@ -112,25 +118,38 @@ def fetch_mpg_player_data(force_refresh: bool = False) -> pd.DataFrame:
         players_raw = data.get("poolPlayers", [])
 
         if not players_raw:
-            logger.warning("⚠️ L'API MPG a renvoyé une liste vide. Vérifiez l'URL ou la saison.")
-            return pd.DataFrame()  # Retourne un tableau vide
+            logger.warning("⚠️ L'API MPG a renvoyé une liste vide.")
+            return pd.DataFrame()
 
         # On transforme la liste de dictionnaires JSON en DataFrame pandas
         # Chaque dictionnaire = un joueur ; chaque clé du dict = une colonne du tableau
         rows = []
         for p in players_raw:
+            # Les statistiques sont dans un sous-dictionnaire "stats"
+            stats = p.get("stats", {})
+
             rows.append({
-                "player_id":    p.get("id", ""),
-                "player_name":  p.get("lastName", ""),
-                "first_name":   p.get("firstName", ""),
-                "team":         p.get("clubId", ""),
+                "player_id":       p.get("id", ""),
+                "player_name":     p.get("lastName", ""),
+                "first_name":      p.get("firstName", ""),
+                "team":            p.get("clubId", ""),
                 # On convertit le code numérique de position en abréviation lisible
-                "position":     _convert_mpg_position(p.get("ultraPosition", 0)),
-                "price":        p.get("quotation", 0),          # Cotation MPG en millions
-                "avg_rating":   p.get("averageRating", None),   # Note moyenne de saison
-                "status":       _convert_mpg_status(p.get("injuryStatus", None)),
-                # Les stats sont dans un sous-dictionnaire "stats"
-                "games_played": p.get("stats", {}).get("matches", 0),
+                "position":        _convert_mpg_position(p.get("ultraPosition", 0)),
+                "price":           p.get("quotation", 0),        # Cotation MPG en millions
+                "avg_rating":      stats.get("averageRating", None),  # Note moyenne de saison
+                "avg_points":      stats.get("averagePoints", None),  # Points MPG moyens
+                "status":          _convert_mpg_status(p.get("injuryStatus", None)),
+                "games_played":    stats.get("totalMatches", 0),
+                "started_matches": stats.get("totalStartedMatches", 0),
+                # Les 5 dernières notes : liste convertie en texte pour le CSV
+                # Ex: [6.5, 7, 5.5, 8, 6] → on peut l'utiliser pour la forme récente
+                "last_5_ratings":  str(stats.get("lastRatings", [])),
+                # Stats détaillées
+                "total_goals":     stats.get("totalGoals", 0),
+                "clean_sheets":    stats.get("totalCleanSheets", 0),
+                "goals_conceded":  stats.get("totalGoalsConceded", 0),
+                "yellow_cards":    stats.get("totalYellowCards", 0),
+                "red_cards":       stats.get("totalRedCards", 0),
             })
 
         # pd.DataFrame() transforme notre liste de dictionnaires en tableau 2D
@@ -144,226 +163,195 @@ def fetch_mpg_player_data(force_refresh: bool = False) -> pd.DataFrame:
     except requests.exceptions.RequestException as e:
         # Ce bloc s'exécute si la connexion a échoué (pas d'internet, API indisponible, etc.)
         logger.error(f"❌ Erreur réseau lors de l'appel API MPG : {e}")
-        raise  # On "relance" l'erreur pour que l'appelant soit au courant
-
-
-def fetch_mpg_ratings_history(force_refresh: bool = False) -> pd.DataFrame:
-    """
-    Récupère l'historique des notes MPG journée par journée.
-
-    C'est très utile pour calculer la FORME RÉCENTE d'un joueur :
-    un joueur avec des notes 7, 7.5, 8 sur les 3 dernières journées est en forme,
-    même si sa moyenne de saison est 6 (il était blessé au début).
-
-    Returns:
-        pd.DataFrame: Tableau avec les colonnes player_id, journee, rating, goals, assists.
-    """
-    cache_path = RAW_DIR / "mpg_ratings_history.csv"
-
-    if cache_path.exists() and not force_refresh:
-        logger.info("📂 Historique des notes MPG trouvé en cache.")
-        return pd.read_csv(cache_path)
-
-    logger.info("🌐 Téléchargement de l'historique des notes MPG...")
-
-    try:
-        url = f"{MPG_API_BASE}/championship-stats-player/{MPG_LEAGUE_ID}"
-        response = requests.get(url, timeout=20)
-        response.raise_for_status()
-        data = response.json()
-
-        rows = []
-        # On parcourt chaque joueur dans la réponse JSON
-        # .items() retourne des paires (clé, valeur) d'un dictionnaire
-        for player_id, player_data in data.get("players", {}).items():
-            # Pour chaque journée où il a joué
-            for match_data in player_data.get("matches", []):
-                rows.append({
-                    "player_id": player_id,
-                    "journee":   match_data.get("matchday", 0),
-                    "rating":    match_data.get("rating", None),      # Note MPG de la journée
-                    "goals":     match_data.get("goals", 0),
-                    "assists":   match_data.get("assists", 0),
-                    "minutes":   match_data.get("minutesPlayed", 0),
-                })
-
-        df = pd.DataFrame(rows)
-        df.to_csv(cache_path, index=False)
-        logger.success(f"✅ Historique récupéré : {len(df)} entrées joueur×journée.")
-        return df
-
-    except Exception as e:
-        logger.error(f"❌ Erreur récupération historique notes : {e}")
         raise
 
 
-# ============================================================
-# FONCTION 2 : Récupérer les stats avancées depuis FBref
-# ============================================================
-
-def fetch_ligue1_stats(season: int = 2025, force_refresh: bool = False) -> pd.DataFrame:
+def compute_recent_form(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Récupère les statistiques détaillées de Ligue 1 depuis FBref.
+    Calcule la moyenne des 5 dernières notes MPG pour chaque joueur.
 
-    FBref est une base de données football gratuite et très complète.
-    Elle donne des stats que l'API MPG ne fournit pas directement :
-      - xG (expected goals) et xA (expected assists)
-      - Tirs, tirs cadrés
-      - Passes progressives (qui avancent vers le but adverse)
-      - Duels défensifs
+    Les 5 dernières notes sont stockées dans la colonne 'last_5_ratings'
+    sous forme de texte (ex: "[6.5, 7.0, 5.5, 8.0, 6.0]").
+    On les convertit en liste Python et on calcule la moyenne.
+
+    Cette fonction est un enrichissement de fetch_mpg_player_data() :
+    on l'appelle après pour ajouter la colonne 'recent_form_avg'.
 
     Args:
-        season (int): Année de FIN de saison. Ex: 2025 pour la saison 2024-2025.
-        force_refresh (bool): True = re-télécharge même si les données existent.
+        df (pd.DataFrame): DataFrame retourné par fetch_mpg_player_data().
 
     Returns:
-        pd.DataFrame: Stats détaillées par joueur pour la saison.
+        pd.DataFrame: Même DataFrame avec la colonne 'recent_form_avg' ajoutée.
     """
-    cache_path = RAW_DIR / f"fbref_stats_{season}.csv"
+    import ast  # ast = Abstract Syntax Tree, permet de convertir du texte en liste Python
 
-    if cache_path.exists() and not force_refresh:
-        logger.info(f"📂 Stats FBref {season} trouvées en cache.")
-        return pd.read_csv(cache_path)
+    def parse_ratings(ratings_str):
+        """Convertit le texte '[6.5, 7.0, 5.5]' en moyenne numérique."""
+        try:
+            # ast.literal_eval convertit une chaîne comme "[6.5, 7.0]" en liste Python [6.5, 7.0]
+            # C'est plus sûr que eval() car il n'exécute pas de code arbitraire
+            ratings = ast.literal_eval(ratings_str)
+            # On filtre les None et les valeurs non numériques (certains joueurs n'ont pas joué)
+            ratings = [r for r in ratings if isinstance(r, (int, float))]
+            if ratings:  # Si la liste n'est pas vide après filtrage
+                return round(sum(ratings) / len(ratings), 2)
+        except (ValueError, SyntaxError):
+            pass
+        return None  # Retourne None si impossible à parser
 
-    logger.info(f"🌐 Téléchargement des stats FBref saison {season-1}-{season}...")
+    df = df.copy()
+    df["recent_form_avg"] = df["last_5_ratings"].apply(parse_ratings)
+    return df
+
+
+# ============================================================
+# FONCTION 2 : Charger les stats FBref depuis le fichier CSV
+# ============================================================
+
+def load_fbref_csv(filename: str = FBREF_CSV_FILENAME) -> pd.DataFrame:
+    """
+    Charge les statistiques FBref depuis un fichier CSV téléchargé manuellement.
+
+    Pourquoi CSV et pas scraping automatique ?
+      FBref bloque les requêtes automatiques (erreur 403 Forbidden).
+      La solution propre est de télécharger les données manuellement depuis leur site.
+
+    Comment obtenir le fichier CSV ?
+      1. Va sur https://fbref.com/en/comps/13/stats/Ligue-1-Stats
+      2. Fais défiler jusqu'au tableau des statistiques joueurs
+      3. Clique sur "Share & more" (icône partage) → "Get table as CSV"
+      4. Copie tout le texte affiché
+      5. Colle-le dans un fichier texte nommé 'ligue1_stats_2025.csv'
+      6. Place ce fichier dans le dossier data/raw/
+
+    Note pour Mac sans Excel :
+      Tu peux créer ce fichier dans Numbers ou même TextEdit en mode texte brut.
+      L'important c'est que le fichier s'appelle exactement 'ligue1_stats_2025.csv'
+      et qu'il soit dans data/raw/.
+
+    Args:
+        filename (str): Nom du fichier CSV dans data/raw/. Défaut = 'ligue1_stats_2025.csv'
+
+    Returns:
+        pd.DataFrame: Stats FBref, ou DataFrame vide si fichier introuvable.
+    """
+    csv_path = RAW_DIR / filename
+
+    if not csv_path.exists():
+        logger.warning(
+            f"⚠️ Fichier FBref non trouvé : {csv_path}\n"
+            f"   → Va sur fbref.com/en/comps/13/stats/Ligue-1-Stats\n"
+            f"   → 'Share & more' → 'Get table as CSV'\n"
+            f"   → Sauvegarde le fichier dans data/raw/{filename}"
+        )
+        return pd.DataFrame()
+
+    logger.info(f"📂 Chargement du fichier FBref : {csv_path}")
 
     try:
-        # La bibliothèque soccerdata s'occupe de tout le scraping de FBref
-        fbref = sd.FBref(leagues="Ligue 1", seasons=season)
+        # On essaie de lire le CSV — FBref peut avoir des lignes d'en-tête multiples
+        # skiprows=1 permet de sauter une éventuelle première ligne parasite
+        df = pd.read_csv(csv_path, skiprows=1)
 
-        # On récupère 3 types de stats différents depuis FBref
-        # Chaque appel génère un tableau ; on les fusionnera ensuite
+        # Nettoyage basique : supprimer les lignes où le joueur s'appelle "Player"
+        # (FBref répète parfois les en-têtes au milieu du tableau)
+        if "Player" in df.columns:
+            df = df[df["Player"] != "Player"]
+            df = df.rename(columns={"Player": "player"})
 
-        # "standard" = statistiques principales : buts, passes décisives, minutes jouées...
-        stats_standard = fbref.read_player_season_stats(stat_type="standard")
+        # Supprimer les colonnes entièrement vides
+        df = df.dropna(axis=1, how="all")
 
-        # "shooting" = statistiques de tir : xG, nombre de tirs, tirs cadrés...
-        stats_shooting = fbref.read_player_season_stats(stat_type="shooting")
+        # Convertir les colonnes numériques
+        for col in df.columns:
+            if col not in ["player", "Nation", "Pos", "Squad", "Comp", "Age", "Born"]:
+                df[col] = pd.to_numeric(df[col], errors="ignore")
 
-        # "passing" = statistiques de passe : xA, passes clés, passes progressives...
-        stats_passing = fbref.read_player_season_stats(stat_type="passing")
-
-        # On fusionne les 3 tableaux sur les colonnes "player" et "team"
-        # merge() est l'équivalent d'un VLOOKUP/RECHERCHEV, ou d'un JOIN SQL
-        # how="left" signifie : garde tous les joueurs du tableau de gauche,
-        # même s'ils n'ont pas de correspondance dans le tableau de droite
-        df = (
-            stats_standard
-            .merge(
-                # On sélectionne seulement les colonnes utiles de shooting
-                # pour éviter d'avoir des colonnes en double (player, team déjà présents)
-                stats_shooting[["player", "team", "xG", "npxG", "shots", "shots_on_target"]],
-                on=["player", "team"],
-                how="left"
-            )
-            .merge(
-                stats_passing[["player", "team", "xAG", "key_passes", "progressive_passes"]],
-                on=["player", "team"],
-                how="left"
-            )
-        )
-
-        df.to_csv(cache_path, index=False)
-        logger.success(f"✅ {len(df)} joueurs FBref récupérés.")
+        logger.success(f"✅ FBref chargé : {len(df)} joueurs, {len(df.columns)} colonnes.")
         return df
 
     except Exception as e:
-        logger.error(f"❌ Erreur lors de la collecte FBref : {e}")
-        raise
+        logger.error(f"❌ Erreur lors du chargement du CSV FBref : {e}")
+        return pd.DataFrame()
 
 
 # ============================================================
-# FONCTION PRINCIPALE : Croiser toutes les sources en un seul tableau
+# FONCTION PRINCIPALE : Construire le dataset complet
 # ============================================================
 
-def build_master_dataset(season: int = 2025, force_refresh: bool = False) -> pd.DataFrame:
+def build_master_dataset(force_refresh: bool = False) -> pd.DataFrame:
     """
-    Construit le tableau FINAL en croisant MPG + FBref.
+    Construit le tableau FINAL en croisant MPG + FBref (si disponible).
 
     C'est la fonction principale que tu utiliseras dans tes analyses.
     Elle appelle les fonctions ci-dessus et assemble tout proprement.
 
     Pourquoi croiser les sources ?
-      - MPG seul : donne les prix et les notes officielles, mais peu de stats détaillées
-      - FBref seul : donne les stats détaillées (xG, tirs...) mais pas les prix MPG
+      - MPG seul : donne les prix et les notes officielles + last_5_ratings
+      - FBref seul : donne les stats avancées (xG, tirs...) mais pas les prix MPG
       - En combinant : on a une vue complète pour faire de bonnes décisions
-
-    Schéma simplifié :
-        Données MPG (prix, notes) ─── jointure sur le nom ──▶ Données FBref (xG, stats...)
-                                                                    = Dataset Master complet
 
     Returns:
         pd.DataFrame: Dataset complet avec toutes les infos par joueur.
     """
-    cache_path = RAW_DIR / f"master_dataset_{season}.csv"
+    cache_path = RAW_DIR / "master_dataset.csv"
 
     if cache_path.exists() and not force_refresh:
         logger.info("📂 Dataset master trouvé en cache.")
         return pd.read_csv(cache_path)
 
-    logger.info("🔧 Construction du dataset master (MPG + FBref)...")
+    logger.info("🔧 Construction du dataset master...")
 
-    # --- Étape 1 : Récupérer chaque source de données ---
-    df_mpg   = fetch_mpg_player_data(force_refresh)
-    df_fbref = fetch_ligue1_stats(season, force_refresh)
+    # --- Étape 1 : Données MPG (obligatoires) ---
+    df_mpg = fetch_mpg_player_data(force_refresh)
 
-    # Si l'API MPG est indisponible, on continue avec FBref seul
     if df_mpg.empty:
-        logger.warning("⚠️ Données MPG vides. Dataset basé sur FBref uniquement.")
-        return df_fbref
+        logger.error("❌ Impossible de construire le dataset sans données MPG.")
+        return pd.DataFrame()
 
-    # --- Étape 2 : Normaliser les noms pour le croisement ---
-    # Les noms peuvent différer entre les sources :
-    #   MPG : "LACAZETTE"  vs  FBref : "Alexandre Lacazette"
-    # La normalisation les ramène à un format commun pour faciliter la correspondance
-    df_mpg["name_normalized"]   = df_mpg["player_name"].apply(_normalize_name)
-    df_fbref["name_normalized"] = df_fbref["player"].apply(_normalize_name)
+    # Calcul de la forme récente à partir des 5 dernières notes
+    df_mpg = compute_recent_form(df_mpg)
 
-    # --- Étape 3 : Fusionner MPG et FBref ---
+    # --- Étape 2 : Données FBref (optionnelles) ---
+    df_fbref = load_fbref_csv()
+
+    if df_fbref.empty:
+        logger.warning("⚠️ FBref non disponible. Dataset basé sur MPG uniquement.")
+        df_mpg.to_csv(cache_path, index=False)
+        return df_mpg
+
+    # --- Étape 3 : Normaliser les noms pour le croisement ---
+    # Les noms peuvent différer entre les sources (accents, ordre prénom/nom...)
+    # La normalisation les ramène à un format commun
+    df_mpg["name_normalized"] = df_mpg["player_name"].apply(_normalize_name)
+
+    # FBref peut avoir la colonne "player" ou "Player"
+    fbref_name_col = "player" if "player" in df_fbref.columns else "Player"
+    df_fbref["name_normalized"] = df_fbref[fbref_name_col].apply(_normalize_name)
+
+    # --- Étape 4 : Fusionner MPG et FBref ---
+    # how="left" = on garde tous les joueurs MPG, même sans correspondance FBref
     df_master = df_mpg.merge(
-        # On retire la colonne "player" de FBref pour éviter les doublons avec "player_name" de MPG
-        df_fbref.drop(columns=["player"], errors="ignore"),
+        df_fbref.drop(columns=[fbref_name_col], errors="ignore"),
         on="name_normalized",
         how="left",
-        # Si une colonne existe dans les deux tables, on ajoute un suffixe pour les distinguer
         suffixes=("_mpg", "_fbref")
     )
 
-    # --- Étape 4 : Ajouter la forme récente (notes des 5 dernières journées) ---
-    df_history = fetch_mpg_ratings_history(force_refresh)
-    if not df_history.empty:
-        # On calcule la moyenne des 5 dernières journées pour chaque joueur
-        recent_form = (
-            df_history
-            .sort_values("journee", ascending=False)        # Du plus récent au plus ancien
-            .groupby("player_id")                           # On regroupe par joueur
-            .head(5)                                        # On ne garde que les 5 dernières lignes
-            .groupby("player_id")["rating"]                 # On isole la colonne "rating"
-            .mean()                                         # Moyenne
-            .reset_index()                                  # Remet player_id en colonne normale
-            .rename(columns={"rating": "recent_form_avg"}) # Renomme clairement
-        )
-        # On ajoute cette colonne au dataset master
-        df_master = df_master.merge(recent_form, on="player_id", how="left")
-
-    # --- Étape 5 : Sauvegarder ---
+    # --- Étape 5 : Sauvegarde ---
     df_master.to_csv(cache_path, index=False)
+    n_matched = df_master["name_normalized"].isin(df_fbref["name_normalized"]).sum()
     logger.success(
         f"✅ Dataset master créé : {len(df_master)} joueurs, "
-        f"{len(df_master.columns)} colonnes."
+        f"{len(df_master.columns)} colonnes. "
+        f"{n_matched} joueurs croisés avec FBref."
     )
-
-    # Petit diagnostic : combien de joueurs n'ont pas de correspondance FBref ?
-    if "xG" in df_master.columns:
-        n_missing = df_master["xG"].isna().sum()
-        logger.info(f"ℹ️  {n_missing} joueurs sans correspondance FBref (noms difficiles à matcher).")
 
     return df_master
 
 
 # ============================================================
 # FONCTIONS UTILITAIRES (internes — préfixées par _ par convention)
-# Les fonctions avec _ ne sont pas censées être appelées de l'extérieur
 # ============================================================
 
 def _convert_mpg_position(ultra_position_code: int) -> str:
@@ -390,7 +378,6 @@ def _convert_mpg_position(ultra_position_code: int) -> str:
         31: "MF",   # Midfielder offensif
         40: "FW",   # Forward = Attaquant
     }
-    # .get(clé, valeur_par_défaut) — retourne '?' si le code n'est pas dans le dictionnaire
     return mapping.get(ultra_position_code, "?")
 
 
@@ -405,14 +392,13 @@ def _convert_mpg_status(injury_status: str | None) -> str:
         str: 'Disponible', 'Blessé', 'Suspendu' ou 'Incertain'
     """
     if injury_status is None:
-        return "Disponible"  # Pas de code = disponible
+        return "Disponible"
 
-    # Les codes commençant par "I" indiquent une blessure (Injury)
     if injury_status.startswith("I"):
         return "Blessé"
-    elif injury_status == "S":   # S = Suspended
+    elif injury_status == "S":
         return "Suspendu"
-    elif injury_status == "D":   # D = Doubtful
+    elif injury_status == "D":
         return "Incertain"
     else:
         return "Disponible"
@@ -426,9 +412,9 @@ def _normalize_name(name: str) -> str:
     Solution : on met tout en minuscules et on supprime les accents.
 
     Exemples :
-        "LACAZETTE"           → "lacazette"
-        "Mbappé"              → "mbappe"
-        "  Guendouzi  "       → "guendouzi"
+        "LACAZETTE"    → "lacazette"
+        "Mbappé"       → "mbappe"
+        "  Guendouzi " → "guendouzi"
 
     Args:
         name (str): Nom brut à normaliser.
@@ -437,44 +423,68 @@ def _normalize_name(name: str) -> str:
         str: Nom normalisé en minuscules, sans accents, sans espaces superflus.
     """
     if not isinstance(name, str):
-        return ""  # Protection contre les valeurs None ou numériques
+        return ""
 
-    # unicodedata.normalize("NFKD") décompose les caractères accentués en deux parties :
-    # le caractère de base + le diacritique (accent).
-    # Exemple : "é" → "e" + accent aigu
+    # unicodedata.normalize("NFKD") décompose les caractères accentués :
+    # "é" → "e" + accent aigu (deux caractères séparés)
     nfkd = unicodedata.normalize("NFKD", name)
 
-    # On filtre les caractères : on garde tout sauf les diacritiques (catégorie "Mn")
-    # "Mn" = Mark, Nonspacing = les accents, trémas, cédilles...
+    # On garde tout sauf les diacritiques (catégorie "Mn" = accents, trémas...)
     no_accents = "".join(c for c in nfkd if not unicodedata.category(c) == "Mn")
 
-    # On met en minuscules et on supprime les espaces en début et fin
     return no_accents.lower().strip()
 
 
 # ============================================================
-# POINT D'ENTRÉE : exécuté uniquement si on lance ce fichier directement
-# (et non quand il est importé par un autre script)
+# POINT D'ENTRÉE — test rapide quand on lance ce fichier directement
 # ============================================================
 
 if __name__ == "__main__":
-    # Ce bloc est un "test rapide" pour vérifier que le code fonctionne
+    print("=" * 55)
+    print("  Test de collecte des données MPG Optimizer")
+    print("=" * 55)
 
-    print("=" * 50)
-    print("  Test de collecte des données MPG")
-    print("=" * 50)
-
-    # Test de l'API MPG
+    # --- Test 1 : API MPG ---
+    print("\n📡 Test de l'API MPG...")
     df_mpg = fetch_mpg_player_data()
 
     if not df_mpg.empty:
-        print(f"\n✅ Données MPG OK : {len(df_mpg)} joueurs")
+        # Calcul de la forme récente
+        df_mpg = compute_recent_form(df_mpg)
+
+        print(f"\n✅ API MPG OK : {len(df_mpg)} joueurs récupérés")
         print(f"Colonnes : {list(df_mpg.columns)}\n")
 
-        # Affiche les 5 attaquants les mieux cotés
-        top_fw = df_mpg[df_mpg["position"] == "FW"].nlargest(5, "price")
-        print("Top 5 attaquants les plus chers :")
-        print(top_fw[["player_name", "team", "price", "avg_rating", "status"]].to_string(index=False))
+        # Affiche les 5 attaquants les mieux notés
+        top_fw = (
+            df_mpg[df_mpg["position"] == "FW"]
+            .dropna(subset=["avg_rating"])
+            .nlargest(5, "avg_rating")
+        )
+        print("🏆 Top 5 attaquants (meilleure note MPG) :")
+        print(top_fw[["player_name", "first_name", "team", "price", "avg_rating", "recent_form_avg"]].to_string(index=False))
+
+        # Affiche les 5 joueurs les plus chers
+        print("\n💰 Top 5 joueurs les plus chers :")
+        top_price = df_mpg.nlargest(5, "price")
+        print(top_price[["player_name", "first_name", "position", "price", "avg_rating"]].to_string(index=False))
+
     else:
-        print("\n⚠️ API MPG indisponible ou en cours de maintenance.")
-        print("Essayez plus tard ou vérifiez la connexion internet.")
+        print("\n⚠️ API MPG indisponible. Vérifiez votre connexion internet.")
+
+    # --- Test 2 : FBref CSV ---
+    print("\n📊 Test du fichier FBref CSV...")
+    df_fbref = load_fbref_csv()
+
+    if not df_fbref.empty:
+        print(f"✅ FBref CSV OK : {len(df_fbref)} joueurs")
+        print(f"Colonnes disponibles : {list(df_fbref.columns[:10])}...")
+    else:
+        print("ℹ️  Fichier FBref non disponible (normal si pas encore téléchargé).")
+        print("   → Voir les instructions dans la fonction load_fbref_csv()")
+
+    # --- Test 3 : Dataset complet ---
+    print("\n🔧 Construction du dataset master...")
+    df_master = build_master_dataset()
+    print(f"\n📋 Dataset final : {len(df_master)} joueurs, {len(df_master.columns)} colonnes")
+    print("Prêt pour l'analyse ! ✨")
