@@ -316,8 +316,8 @@ def get_value_picks(
     result = result[result["price"] >= 5]
 
     # Filtre : au moins 10 matchs joués
-    if "games_played" in result.columns:
-        result = result[result["games_played"] >= 10]
+    if "started_matches" in result.columns:
+        result = result[result["started_matches"] >= 8]
 
     desired_cols = [
         "player_name", "first_name", "position", "team",
