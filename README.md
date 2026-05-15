@@ -14,10 +14,10 @@ Ce projet exploite les données disponibles autour de la Ligue 1 pour prendre de
 
 | Module | Description | Statut |
 |--------|-------------|--------|
-| 🔌 **Collecte de données** | API MPG officielle + FBref + Understat | 🚧 En cours |
-| 📊 **Analyse joueurs** | Stats avancées, forme récente, scoring composite | 🚧 En cours |
-| 🧠 **Optimisation compo** | Meilleur XI selon budget & contraintes | 🚧 En cours |
-| 💸 **Stratégie mercato** | Détection de pépites & joueurs surcotés | 🚧 En cours |
+| 🔌 **Collecte de données** | API MPG officielle + FBref + Understat | ✅ Fait |
+| 📊 **Analyse joueurs** | Stats avancées, forme récente, scoring composite | ✅ Fait |
+| 🧠 **Optimisation compo** | Meilleur XI selon budget & contraintes | ✅ Fait |
+| 💸 **Stratégie mercato** | Détection de pépites & joueurs surcotés | ✅ Fait |
 
 ---
 
@@ -166,8 +166,8 @@ print_xi(result)
 - [x] Module de scoring composite par poste
 - [x] Détection de pépites et analyse de forme
 - [x] Optimisation du XI par programmation linéaire
-- [ ] Tests d'intégration complets
-- [ ] Notebook de démonstration Jupyter
+- [x] Tests d'intégration complets
+- [x] Notebook de démonstration Jupyter
 - [ ] Interface CLI interactive
 - [ ] Gestion des championnats étrangers (Liga, Premier League...)
 
