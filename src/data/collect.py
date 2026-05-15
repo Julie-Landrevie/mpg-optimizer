@@ -251,7 +251,7 @@ def load_fbref_csv(filename: str = FBREF_CSV_FILENAME) -> pd.DataFrame:
     try:
         # On essaie de lire le CSV — FBref peut avoir des lignes d'en-tête multiples
         # skiprows=1 permet de sauter une éventuelle première ligne parasite
-        df = pd.read_csv(csv_path, skiprows=1)
+        df = pd.read_csv(csv_path, skiprows=1, sep=";")
 
         # Nettoyage basique : supprimer les lignes où le joueur s'appelle "Player"
         # (FBref répète parfois les en-têtes au milieu du tableau)
