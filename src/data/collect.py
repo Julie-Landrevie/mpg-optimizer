@@ -251,7 +251,7 @@ def load_fbref_csv(filename: str = FBREF_CSV_FILENAME) -> pd.DataFrame:
     try:
         # On essaie de lire le CSV — FBref peut avoir des lignes d'en-tête multiples
         # skiprows=1 permet de sauter une éventuelle première ligne parasite
-        df = pd.read_csv(csv_path, skiprows=1, sep=";")
+        df = pd.read_csv(csv_path, skiprows=1, sep=";", encoding="utf-8", lineterminator="\n", on_bad_lines="skip")
 
         # Nettoyage basique : supprimer les lignes où le joueur s'appelle "Player"
         # (FBref répète parfois les en-têtes au milieu du tableau)
@@ -320,31 +320,116 @@ def build_master_dataset(force_refresh: bool = False) -> pd.DataFrame:
         df_mpg.to_csv(cache_path, index=False)
         return df_mpg
 
-    # --- Étape 3 : Normaliser les noms pour le croisement ---
-    # Les noms peuvent différer entre les sources (accents, ordre prénom/nom...)
-    # La normalisation les ramène à un format commun
+    # --- Étape 3 : Normaliser les noms ---
+    # Problème : MPG stocke uniquement le NOM DE FAMILLE ("Abergel")
+    # alors que FBref a PRÉNOM + NOM ("Laurent Abergel").
+    # Solution : matching en 3 passes, du plus précis au moins précis.
+
+    fbref_name_col = "player" if "player" in df_fbref.columns else "Player"
+
+    # Clés FBref
+    df_fbref["name_normalized"]      = df_fbref[fbref_name_col].apply(_normalize_name)
+    df_fbref["last_name_normalized"] = df_fbref["name_normalized"].apply(
+        lambda n: n.split()[-1] if n else ""
+    )
+
+    # Clés MPG
+    df_mpg["full_name_normalized"] = (
+        df_mpg["first_name"].fillna("").apply(_normalize_name) + " " +
+        df_mpg["player_name"].apply(_normalize_name)
+    ).str.strip()
     df_mpg["name_normalized"] = df_mpg["player_name"].apply(_normalize_name)
 
-    # FBref peut avoir la colonne "player" ou "Player"
-    fbref_name_col = "player" if "player" in df_fbref.columns else "Player"
-    df_fbref["name_normalized"] = df_fbref[fbref_name_col].apply(_normalize_name)
+    fbref_drop  = [fbref_name_col]
+    fbref_cols  = [c for c in df_fbref.columns if c not in fbref_drop + ["name_normalized", "last_name_normalized"]]
+    stat_col    = "Gls" if "Gls" in df_fbref.columns else (fbref_cols[0] if fbref_cols else None)
 
-    # --- Étape 4 : Fusionner MPG et FBref ---
-    # how="left" = on garde tous les joueurs MPG, même sans correspondance FBref
-    df_master = df_mpg.merge(
-        df_fbref.drop(columns=[fbref_name_col], errors="ignore"),
-        on="name_normalized",
-        how="left",
-        suffixes=("_mpg", "_fbref")
+    def is_matched(df_m):
+        if stat_col and stat_col in df_m.columns:
+            return df_m[stat_col].notna()
+        return pd.Series([False] * len(df_m), index=df_m.index)
+
+    # PASSE 1 : prénom+nom exact ("laurent abergel" == "laurent abergel")
+    merge1    = df_mpg.merge(
+        df_fbref[["name_normalized"] + fbref_cols],
+        left_on="full_name_normalized", right_on="name_normalized",
+        how="left", suffixes=("", "_f1")
     )
+    matched1  = is_matched(merge1)
+    n_pass1   = matched1.sum()
+    logger.info(f"Passe 1 (prénom+nom exact)   : {n_pass1} joueurs matchés")
+
+    # PASSE 2 : nom seul, uniquement si nom unique dans FBref (évite faux positifs)
+    fbref_uniq = df_fbref.drop_duplicates(subset="last_name_normalized", keep=False)
+    idx2       = merge1[~matched1].index
+    merge2     = df_mpg.loc[idx2].merge(
+        fbref_uniq[["last_name_normalized"] + fbref_cols],
+        left_on="name_normalized", right_on="last_name_normalized",
+        how="left", suffixes=("", "_f2")
+    )
+    matched2   = is_matched(merge2)
+    n_pass2    = matched2.sum()
+    logger.info(f"Passe 2 (nom seul unique)    : {n_pass2} joueurs matchés")
+
+    # PASSE 3 : dictionnaire lookup pour les cas restants
+    fbref_dict = {row["last_name_normalized"]: row for _, row in df_fbref.iterrows()}
+    idx3       = merge2[~matched2].index
+    extra      = []
+    n_pass3    = 0
+    for i in idx3:
+        r        = df_mpg.loc[i].to_dict()
+        fbref_r  = fbref_dict.get(r.get("name_normalized", ""))
+        if fbref_r is not None:
+            for c in fbref_cols:
+                r[c] = fbref_r.get(c)
+            n_pass3 += 1
+        extra.append(r)
+    logger.info(f"Passe 3 (lookup dictionnaire): {n_pass3} joueurs matchés")
+
+    # --- Assemblage ---
+    # On repart du dataset MPG complet (514 joueurs) et on enrichit colonne par colonne
+    # pour ne perdre aucun joueur.
+    df_master = df_mpg.copy()
+
+    # Colonnes FBref à ajouter
+    for col in fbref_cols:
+        df_master[col] = None
+
+    # Appliquer les résultats de passe 1
+    for idx, row in merge1[matched1].iterrows():
+        pid = row.get("player_id")
+        if pid:
+            for col in fbref_cols:
+                if col in row:
+                    df_master.loc[df_master["player_id"] == pid, col] = row[col]
+
+    # Appliquer les résultats de passe 2 (joueurs pas encore matchés)
+    already_matched = set(merge1[matched1]["player_id"].tolist())
+    for idx, row in merge2[matched2].iterrows():
+        pid = row.get("player_id")
+        if pid and pid not in already_matched:
+            for col in fbref_cols:
+                if col in row:
+                    df_master.loc[df_master["player_id"] == pid, col] = row[col]
+            already_matched.add(pid)
+
+    # Appliquer les résultats de passe 3
+    for r in extra:
+        pid = r.get("player_id")
+        if pid and pid not in already_matched and r.get("Gls") is not None:
+            for col in fbref_cols:
+                if col in r:
+                    df_master.loc[df_master["player_id"] == pid, col] = r.get(col)
+            already_matched.add(pid)
+
+    total_matched = n_pass1 + n_pass2 + n_pass3
 
     # --- Étape 5 : Sauvegarde ---
     df_master.to_csv(cache_path, index=False)
-    n_matched = df_master["name_normalized"].isin(df_fbref["name_normalized"]).sum()
     logger.success(
-        f"✅ Dataset master créé : {len(df_master)} joueurs, "
+        f"✅ Dataset master : {len(df_master)} joueurs, "
         f"{len(df_master.columns)} colonnes. "
-        f"{n_matched} joueurs croisés avec FBref."
+        f"{total_matched} joueurs croisés avec FBref (avant : 27) 🎯"
     )
 
     return df_master
