@@ -1,0 +1,515 @@
+player_id,player_name,first_name,team,position,price,avg_rating,avg_points,status,games_played,started_matches,last_5_ratings,total_goals,clean_sheets,goals_conceded,yellow_cards,red_cards,recent_form_avg
+mpg_championship_player_100952,Mvogo,Yvon,mpg_championship_club_694,GK,15,5.183333333333334,5.28,Disponible,30,30,"[4.5, 6.5, 4, 5.5, 6]",0,6,41,0,0,5.3
+mpg_championship_player_102747,Sidibé,Djibril,mpg_championship_club_427,DF,14,5.078125,5.08,Disponible,33,25,"[3.5, 5, None, 5.5, 4.5]",3,0,0,1,0,4.62
+mpg_championship_player_102760,Sarr,Bouna,mpg_championship_club_145,MF,7,4.636363636363637,4.59,Disponible,13,9,"[6, 5, 4, 5, 3]",0,0,0,1,0,4.6
+mpg_championship_player_102836,Samba,Brice,mpg_championship_club_150,GK,16,5.359375,5.35,Disponible,33,32,"[7, 6, 7, 4, 4.5]",0,10,44,5,0,5.7
+mpg_championship_player_103116,Léon,Donovan,mpg_championship_club_138,GK,16,5.375,5.23,Disponible,33,28,"[6.5, 4.5, None, None, 4.5]",0,7,35,0,2,5.17
+mpg_championship_player_105717,Masuaku,Arthur,mpg_championship_club_142,DF,1,4.5,4.54,Disponible,14,2,"[None, 5, 3.5, None, None]",0,0,0,1,0,4.25
+mpg_championship_player_106921,Rulli,Gerónimo,mpg_championship_club_144,GK,14,5.5,5.45,Disponible,33,28,"[5, 4, 4.5, None, 6.5]",0,8,33,3,0,5.0
+mpg_championship_player_107258,Abergel,Laurent,mpg_championship_club_694,MF,7,5.092592592592593,5.19,Disponible,33,26,"[None, 5.5, 3.5, 5, 6.5]",1,0,0,6,0,5.12
+mpg_championship_player_107925,Caillard,Marc-Aurèle,mpg_championship_club_429,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_109533,Emerson,,mpg_championship_club_144,DF,10,5.203703703703703,5.56,Disponible,30,22,"[None, 5.5, 5, 3.5, 6]",0,0,0,3,0,5.0
+mpg_championship_player_112580,Capelle,Pierrick,mpg_championship_club_2128,MF,8,5.066666666666666,4.57,Disponible,33,5,"[4.5, 5.5, 4.5, 4.5, 5.5]",0,0,0,2,0,4.9
+mpg_championship_player_115327,Aguilar,Ruben,mpg_championship_club_142,DF,9,5.3,5.35,Disponible,33,20,"[5, None, 5, 5, 5]",2,0,0,3,1,5.0
+mpg_championship_player_115858,Ghezzal,Rachid,mpg_championship_club_143,MF,5,4.45,4.38,Disponible,30,2,"[5, None, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_115961,Thomasson,Adrien,mpg_championship_club_142,MF,15,5.580645161290323,5.61,Disponible,33,31,"[4, 7, 4.5, 6, None]",3,0,0,11,0,5.38
+mpg_championship_player_116406,Marquinhos,,mpg_championship_club_149,DF,7,5.461538461538462,5.99,Disponible,33,10,"[None, None, None, None, 6]",0,0,0,0,0,6.0
+mpg_championship_player_119582,Julien Lopez,Julien,mpg_championship_club_2338,MF,1,4.4,4.18,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_122775,Sanson,Morgan,mpg_championship_club_1395,MF,8,4.8,4.52,Disponible,33,19,"[5.5, None, 4.5, 4.5, 4.5]",0,0,0,4,0,4.75
+mpg_championship_player_126407,Bentaleb,Nabil,mpg_championship_club_429,MF,15,5.42,5.34,Disponible,33,12,"[6.5, None, None, None, 5.5]",2,0,0,3,0,6.0
+mpg_championship_player_128198,Boufal,Sofiane,mpg_championship_club_141,MF,12,5.3125,5.19,Disponible,16,12,"[5, 6.5, 5, 6, 4]",1,0,0,2,0,5.3
+mpg_championship_player_130016,Radakovic,Uros,mpg_championship_club_430,DF,1,5.0,4.97,Disponible,33,1,"[None, None, None, 5, 5.5]",0,0,0,0,0,5.25
+mpg_championship_player_132015,Højbjerg,Pierre-Emile,mpg_championship_club_144,MF,15,5.435483870967742,5.85,Disponible,33,29,"[5, 3.5, 7, 3.5, 6]",3,0,0,3,0,5.0
+mpg_championship_player_140040,Frankowski,Przemyslaw,mpg_championship_club_150,DF,8,5.052631578947368,5.31,Disponible,33,15,"[4, None, None, None, None]",1,0,0,5,0,4.0
+mpg_championship_player_141109,Lloris,Gautier,mpg_championship_club_141,DF,12,5.25,5.55,Disponible,33,27,"[5, 5, 4.5, 6, 4.5]",1,0,0,2,1,5.0
+mpg_championship_player_149736,Mbemba,Chancel,mpg_championship_club_429,DF,6,5.153846153846154,5.56,Disponible,30,9,"[None, 6, None, None, None]",0,0,0,3,0,6.0
+mpg_championship_player_153134,Kamara,Glen,mpg_championship_club_150,MF,1,5.0,4.63,Disponible,33,0,"[None, 5, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_154043,Maitland-Niles,Ainsley,mpg_championship_club_143,DF,10,5.0344827586206895,5.37,Disponible,33,27,"[5, 5.5, 5, 5, 4.5]",1,0,0,5,1,5.0
+mpg_championship_player_157882,Minamino,Takumi,mpg_championship_club_146,MF,1,5.2,5.02,Disponible,33,11,"[None, None, None, None, None]",3,0,0,4,0,
+mpg_championship_player_158496,Touré,Abdoulaye,mpg_championship_club_141,MF,1,5.363636363636363,4.99,Disponible,33,8,"[None, None, None, None, None]",2,0,0,2,0,
+mpg_championship_player_160987,Gbamin,Jean-Philippe,mpg_championship_club_145,DF,9,4.466666666666667,4.85,Disponible,33,30,"[3, 4.5, 4.5, 5, 4]",1,0,0,2,1,4.2
+mpg_championship_player_161034,Saïd,Wesley,mpg_championship_club_142,FW,18,5.75,5.29,Disponible,33,25,"[4.5, 4.5, 4.5, None, 5.5]",10,0,0,2,0,4.75
+mpg_championship_player_161950,Golovin,Aleksandr,mpg_championship_club_146,MF,17,5.5,5.21,Disponible,33,21,"[None, 4.5, 4.5, 5, 5]",5,0,0,2,1,4.75
+mpg_championship_player_162316,Chardonnet,Brendan,mpg_championship_club_862,DF,15,5.196428571428571,5.5,Disponible,33,28,"[None, 7, 4.5, 3, None]",1,0,0,5,0,4.83
+mpg_championship_player_167040,Carlgren,Patrik,mpg_championship_club_430,GK,7,6.0,6.23,Disponible,33,2,"[None, None, None, 8, None]",0,1,2,0,0,8.0
+mpg_championship_player_168539,Ajorque,Ludovic,mpg_championship_club_862,FW,22,5.306451612903226,5.37,Disponible,33,31,"[6.5, 4.5, 6, 3, 4]",8,0,0,9,1,4.8
+mpg_championship_player_168568,Tolisso,Corentin,mpg_championship_club_143,MF,28,5.913793103448276,5.74,Disponible,33,25,"[7, None, 7.5, 8, 5.5]",11,0,0,5,0,7.0
+mpg_championship_player_170135,Hateboer,Hans,mpg_championship_club_143,DF,7,4.666666666666667,4.56,Disponible,36,8,"[None, 5, None, None, None]",0,0,0,0,1,5.0
+mpg_championship_player_170137,Saint-Maximin,Allan,mpg_championship_club_142,MF,9,5.5,5.91,Disponible,13,2,"[5, 6, 7, 6, None]",3,0,0,0,0,6.0
+mpg_championship_player_172850,Chilwell,Ben,mpg_championship_club_153,DF,10,4.85,5.27,Disponible,30,19,"[None, None, None, None, None]",0,0,0,4,0,
+mpg_championship_player_174317,Machado,Deiver,mpg_championship_club_430,DF,8,4.815789473684211,4.98,Disponible,33,16,"[6.5, 6, 4.5, 5, None]",0,0,0,3,0,5.5
+mpg_championship_player_174528,Traoré,Hamari,mpg_championship_club_2338,DF,6,4.852941176470588,5.13,Disponible,30,14,"[5, 5, 5, 6, 4.5]",0,0,0,4,0,5.1
+mpg_championship_player_174888,Hernández,Lucas,mpg_championship_club_149,DF,10,5.26,5.8,Disponible,33,20,"[5, 4, 5, 5, 6.5]",0,0,0,4,0,5.1
+mpg_championship_player_174969,van den Boomen,Branco,mpg_championship_club_2128,MF,12,4.964285714285714,4.98,Disponible,15,13,"[5.5, 5.5, 4, 3.5, 5.5]",0,0,0,3,0,4.8
+mpg_championship_player_175794,Kvilitaia,Giorgi,mpg_championship_club_145,FW,4,4.888888888888889,4.64,Disponible,13,4,"[None, 6.5, 6, 4, 5]",2,0,0,1,0,5.38
+mpg_championship_player_176357,Diaw,Mory,mpg_championship_club_141,GK,15,5.327586206896552,5.29,Disponible,33,29,"[6, 6, 4, 7, 5.5]",0,6,41,1,0,5.7
+mpg_championship_player_176501,Gradit,Jonathan,mpg_championship_club_142,DF,1,5.55,5.65,Disponible,33,10,"[None, None, None, None, None]",0,0,0,2,1,
+mpg_championship_player_177020,Igor Silva,,mpg_championship_club_694,DF,4,5.0588235294117645,4.76,Disponible,33,13,"[None, 5, 4, None, 5]",1,0,0,1,0,4.67
+mpg_championship_player_179519,Mangala,Orel,mpg_championship_club_143,MF,6,5.1875,5.04,Disponible,33,4,"[6, 6.5, 5, None, None]",0,0,0,0,0,5.83
+mpg_championship_player_180182,Verdonk,Calvin,mpg_championship_club_429,DF,8,4.882352941176471,4.94,Disponible,30,7,"[5, None, None, 5, 5]",0,0,0,3,1,5.0
+mpg_championship_player_181007,Embolo,Breel,mpg_championship_club_150,FW,16,4.983333333333333,5.06,Disponible,33,20,"[5, 6, 4.5, 4, 5]",8,0,0,3,0,4.9
+mpg_championship_player_181441,Simon,Moses,mpg_championship_club_2338,MF,16,5.339285714285714,4.91,Disponible,33,24,"[7, None, 5, 6.5, None]",3,0,0,0,0,6.17
+mpg_championship_player_184855,Yaremchuk,Roman,mpg_championship_club_143,FW,10,5.1,5.15,Disponible,13,5,"[6, None, 7.5, 7, 4]",4,0,0,1,0,6.12
+mpg_championship_player_189781,Clinton Mata,,mpg_championship_club_143,DF,15,5.096774193548387,5.57,Disponible,33,31,"[5.5, 5.5, 5, 5.5, 4]",0,0,0,5,0,5.1
+mpg_championship_player_193411,Belkebla,Haris,mpg_championship_club_2128,MF,14,5.09375,4.93,Disponible,33,32,"[5, 5.5, 4.5, 3.5, 5.5]",0,0,0,7,0,4.8
+mpg_championship_player_193539,Rongier,Valentin,mpg_championship_club_150,MF,19,5.616666666666666,5.92,Disponible,33,30,"[7, None, 6, 4, 4.5]",2,0,0,6,0,5.38
+mpg_championship_player_194188,Kamara,Bingourou,mpg_championship_club_694,GK,7,4.333333333333333,3.87,Disponible,33,3,"[None, None, None, None, None]",0,1,8,0,0,
+mpg_championship_player_196111,Mpasi,Lionel,mpg_championship_club_141,GK,7,6.125,6.12,Disponible,33,3,"[None, None, None, None, None]",0,1,2,2,0,
+mpg_championship_player_198242,Haug,Kjetil,mpg_championship_club_427,GK,7,5.0,4.78,Disponible,33,0,"[None, None, None, None, None]",0,0,1,0,0,
+mpg_championship_player_199170,Niakhaté,Moussa,mpg_championship_club_143,DF,19,5.516129032258065,6.02,Disponible,33,29,"[6.5, 6, 5, 5.5, 5]",0,0,0,3,0,5.6
+mpg_championship_player_199666,Makengo,Jean-Victor,mpg_championship_club_694,MF,18,5.583333333333333,5.0,Disponible,33,22,"[5.5, 5, 5.5, 5, 8]",4,0,0,2,0,5.8
+mpg_championship_player_199670,Édouard,Odsonne,mpg_championship_club_142,FW,24,5.172413793103448,5.24,Disponible,30,26,"[4, 4.5, 5, 4.5, 4.5]",12,0,0,2,0,4.5
+mpg_championship_player_199672,Ikoné,Jonathan,mpg_championship_club_2338,MF,13,5.0227272727272725,4.93,Disponible,30,12,"[8, None, 5, 7, 5]",3,0,0,2,0,6.25
+mpg_championship_player_200958,Dioussé,Assane,mpg_championship_club_138,MF,4,4.933333333333334,4.57,Disponible,33,1,"[None, None, None, 5, None]",0,0,0,3,0,5.0
+mpg_championship_player_201057,Kehrer,Thilo,mpg_championship_club_146,DF,12,5.0,5.41,Disponible,33,27,"[4, 4.5, 4.5, 5.5, 4.5]",0,0,0,6,2,4.6
+mpg_championship_player_201379,Ruiz,Fabián,mpg_championship_club_149,MF,7,5.552631578947368,5.74,Disponible,33,12,"[5.5, 5.5, 5.5, 5.5, 5]",1,0,0,2,0,5.4
+mpg_championship_player_201401,McKenzie,Mark,mpg_championship_club_427,DF,11,4.896551724137931,5.05,Disponible,33,27,"[3.5, None, 5, 5.5, 5.5]",0,0,0,7,1,4.88
+mpg_championship_player_202675,Pavard,Benjamin,mpg_championship_club_144,DF,9,5.115384615384615,5.44,Disponible,30,22,"[6, 3.5, 6, None, 5]",1,0,0,5,0,5.12
+mpg_championship_player_203349,Tousart,Lucas,mpg_championship_club_862,MF,9,4.913043478260869,4.54,Disponible,30,8,"[5, None, 5.5, 4.5, 4]",1,0,0,0,0,4.75
+mpg_championship_player_203368,Guilbert,Frédéric,mpg_championship_club_430,DF,7,5.4375,5.43,Disponible,14,7,"[5, 5, 6, 7, 5]",0,0,0,1,0,5.6
+mpg_championship_player_204188,Sotoca,Florian,mpg_championship_club_142,FW,7,4.58,4.39,Disponible,33,3,"[4.5, 4.5, 5, None, 5]",0,0,0,2,0,4.75
+mpg_championship_player_204727,Sarr,Malang,mpg_championship_club_142,DF,15,5.53125,5.93,Disponible,33,32,"[3.5, 6, 4, 6.5, 5]",0,0,0,3,0,5.0
+mpg_championship_player_208973,Sierralta,Francisco,mpg_championship_club_138,DF,1,5.0,5.37,Disponible,33,9,"[None, None, None, None, None]",1,0,0,2,0,
+mpg_championship_player_209049,Namaso,Danny,mpg_championship_club_138,FW,13,5.120689655172414,5.14,Disponible,32,28,"[4.5, 5, 4, 4, 6]",3,0,0,8,0,4.7
+mpg_championship_player_209171,Arcus,Carlens,mpg_championship_club_2128,DF,9,5.02,5.38,Disponible,33,24,"[None, None, None, 4.5, None]",0,0,0,7,0,4.5
+mpg_championship_player_209874,Marchetti,Vincent,mpg_championship_club_2338,MF,5,4.931818181818182,4.75,Disponible,33,9,"[None, 5, None, 5.5, 5]",2,0,0,1,0,5.17
+mpg_championship_player_210494,Aguerd,Nayef,mpg_championship_club_144,DF,7,5.5,6.18,Disponible,30,16,"[None, None, None, None, None]",1,0,0,4,0,
+mpg_championship_player_212325,Lees-Melou,Pierre,mpg_championship_club_2338,MF,14,5.304347826086956,5.21,Disponible,33,21,"[5.5, None, 5, None, 5.5]",1,0,0,5,1,5.33
+mpg_championship_player_212701,Zakaria,Denis,mpg_championship_club_146,MF,16,5.3478260869565215,5.41,Disponible,33,22,"[3, 4.5, 5.5, 6, 4]",2,0,0,4,1,4.6
+mpg_championship_player_212873,Greif,Dominik,mpg_championship_club_143,GK,18,5.714285714285714,5.64,Disponible,32,28,"[7.5, 8, 4, 5.5, 5.5]",0,11,33,1,0,6.1
+mpg_championship_player_213199,Descamps,Rémy,mpg_championship_club_143,GK,7,5.8,5.74,Disponible,33,5,"[None, None, None, None, None]",0,4,3,0,0,
+mpg_championship_player_213940,Blas,Ludovic,mpg_championship_club_150,MF,18,5.419354838709677,5.22,Disponible,33,14,"[6, 7.5, 5.5, 4.5, 5]",5,0,0,0,0,5.7
+mpg_championship_player_213965,Maxime Lopez,Maxime,mpg_championship_club_2338,MF,10,5.18,5.46,Disponible,33,22,"[5.5, None, 5, 5, 5]",0,0,0,10,0,5.12
+mpg_championship_player_214245,Centonze,Fabien,mpg_championship_club_430,DF,10,5.133333333333334,5.24,Disponible,33,9,"[5, None, None, None, None]",3,0,0,4,0,5.0
+mpg_championship_player_214254,Diallo,Habib,mpg_championship_club_145,FW,8,4.58,4.59,Disponible,30,21,"[4, 4.5, None, 4.5, 4.5]",4,0,0,0,0,4.38
+mpg_championship_player_215473,Weah,Timothy,mpg_championship_club_144,MF,12,5.160714285714286,5.25,Disponible,33,25,"[4.5, 5, 6, None, None]",2,0,0,5,0,5.17
+mpg_championship_player_216272,de Lange,Jeffrey,mpg_championship_club_144,GK,7,4.5,4.76,Disponible,33,5,"[None, None, None, 3.5, None]",0,1,11,0,0,3.5
+mpg_championship_player_217487,Samatta,Mbwana,mpg_championship_club_141,FW,9,4.653846153846154,4.66,Disponible,33,16,"[6.5, 5, 7, 5, 4.5]",2,0,0,4,0,5.6
+mpg_championship_player_217596,Amian,Kelvin,mpg_championship_club_430,DF,6,4.521739130434782,5.06,Disponible,33,22,"[None, None, None, None, None]",0,0,0,3,0,
+mpg_championship_player_217597,Cafaro,Mathieu,mpg_championship_club_2338,MF,3,4.8,4.41,Disponible,33,1,"[None, 5, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_218218,Faes,Wout,mpg_championship_club_146,DF,11,4.846153846153846,5.52,Disponible,16,12,"[3, 4.5, 4.5, None, 5]",0,0,0,3,0,4.25
+mpg_championship_player_218244,Haidara,Amadou,mpg_championship_club_142,MF,8,5.25,4.89,Disponible,16,1,"[None, None, None, None, 5]",1,0,0,0,0,5.0
+mpg_championship_player_219268,Seko,Ayumu,mpg_championship_club_141,DF,10,5.0,5.02,Disponible,33,29,"[5.5, 5.5, 4, 4.5, 5]",0,0,0,6,0,4.9
+mpg_championship_player_219438,Dembélé,Ousmane,mpg_championship_club_149,FW,36,5.761904761904762,6.39,Disponible,33,10,"[7, 4.5, None, None, 4.5]",10,0,0,0,0,5.33
+mpg_championship_player_219873,Del Castillo,Romain,mpg_championship_club_862,FW,15,5.564516129032258,5.2,Disponible,33,31,"[5.5, 6, 5, 3.5, 5]",8,0,0,2,1,5.0
+mpg_championship_player_220560,Perrin,Gaëtan,mpg_championship_club_429,MF,13,4.954545454545454,4.88,Disponible,13,3,"[4.5, 4.5, 4.5, 5, 5]",1,0,0,2,0,4.7
+mpg_championship_player_220688,Greenwood,Mason,mpg_championship_club_144,FW,39,5.919354838709677,5.92,Disponible,33,28,"[7.5, 4, 5, 4, 7]",16,0,0,4,0,5.5
+mpg_championship_player_221095,Clauss,Jonathan,mpg_championship_club_1395,DF,11,4.931034482758621,5.42,Disponible,33,27,"[4.5, 5.5, 6, None, 3.5]",1,0,0,0,0,4.88
+mpg_championship_player_221987,Udol,Matthieu,mpg_championship_club_142,DF,21,5.393939393939394,5.8,Disponible,33,33,"[3.5, 5, 4.5, 5, 5.5]",1,0,0,2,0,4.7
+mpg_championship_player_222695,Teze,Jordan,mpg_championship_club_146,DF,15,5.140625,5.35,Disponible,33,27,"[4, 4.5, 6.5, 4.5, 4.5]",1,0,0,8,0,4.8
+mpg_championship_player_222874,Awaziem,Chidozie,mpg_championship_club_430,DF,10,5.019230769230769,5.45,Disponible,33,25,"[None, None, None, 7, 5]",1,0,0,7,0,6.0
+mpg_championship_player_223760,Hakimi,Achraf,mpg_championship_club_149,DF,13,5.166666666666667,5.86,Disponible,33,15,"[None, 3.5, 5.5, None, None]",2,0,0,3,1,4.5
+mpg_championship_player_224868,Medina,Facundo,mpg_championship_club_144,DF,9,4.90625,5.28,Disponible,33,15,"[5.5, None, 5.5, 4.5, 5]",0,0,0,7,0,5.12
+mpg_championship_player_225897,Ballo-Touré,Fodé,mpg_championship_club_145,DF,6,4.384615384615385,4.77,Disponible,30,11,"[5, None, None, None, None]",0,0,0,2,0,5.0
+mpg_championship_player_225997,Alakouch,Sofiane,mpg_championship_club_2338,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_226451,Sissoko,Ibrahima,mpg_championship_club_430,MF,7,4.6923076923076925,4.72,Disponible,16,9,"[4.5, 4.5, 5.5, 6.5, 4.5]",0,0,0,4,0,5.1
+mpg_championship_player_228289,Lefort,Jordan,mpg_championship_club_2128,DF,11,4.984848484848484,5.26,Disponible,33,33,"[4.5, 5.5, 4, 4.5, 6]",0,0,0,2,0,4.9
+mpg_championship_player_228345,Koffi,Hervé,mpg_championship_club_2128,GK,17,5.879310344827586,5.85,Disponible,33,29,"[5.5, 7, 5.5, 5.5, 6]",0,10,36,1,0,5.9
+mpg_championship_player_228539,Majecki,Radoslaw,mpg_championship_club_862,GK,7,4.65,4.45,Disponible,33,10,"[None, None, None, None, None]",0,3,15,0,1,
+mpg_championship_player_228955,Nicolaisen,Rasmus,mpg_championship_club_427,DF,12,5.03125,5.24,Disponible,33,30,"[3, 4.5, 4, 6, 6]",1,0,0,4,0,4.7
+mpg_championship_player_229225,Gory,Alimami,mpg_championship_club_2338,FW,12,4.913043478260869,4.58,Disponible,33,9,"[4.5, 7, 4, None, 5]",3,0,0,2,0,5.12
+mpg_championship_player_229670,Mensah,Gideon,mpg_championship_club_138,DF,11,4.879310344827586,5.18,Disponible,33,25,"[5, 5, 3, 5, 5.5]",0,0,0,8,0,4.7
+mpg_championship_player_230971,Caio Henrique,,mpg_championship_club_146,DF,5,4.75,5.09,Disponible,33,17,"[None, None, None, 6, None]",0,0,0,2,0,6.0
+mpg_championship_player_231372,Ndombélé,Tanguy,mpg_championship_club_1395,MF,3,5.1875,4.63,Disponible,33,3,"[None, 5.5, None, None, None]",0,0,0,0,0,5.5
+mpg_championship_player_231875,Diouf,Yehvann,mpg_championship_club_1395,GK,15,5.34,5.26,Disponible,33,25,"[6, 6, 6, 6, 4.5]",0,4,45,1,0,5.7
+mpg_championship_player_232182,Hein,Gauthier,mpg_championship_club_145,MF,16,5.428571428571429,5.52,Disponible,33,25,"[5, 4, 8, 7, 3.5]",8,0,0,1,1,5.5
+mpg_championship_player_232223,Balogun,Folarin,mpg_championship_club_146,FW,25,5.448275862068965,5.42,Disponible,33,25,"[6, 6, 5, 6, 4]",13,0,0,4,1,5.4
+mpg_championship_player_234516,Szymanski,Sebastian,mpg_championship_club_150,MF,12,5.6,5.13,Disponible,15,9,"[5, 8, 5.5, 5, 6]",1,0,0,2,0,5.9
+mpg_championship_player_235050,Nordin,Arnaud,mpg_championship_club_150,FW,9,5.277777777777778,5.22,Disponible,13,7,"[None, 4.5, None, None, 4.5]",1,0,0,1,0,4.5
+mpg_championship_player_241059,De Smet,Thibault,mpg_championship_club_2338,DF,4,4.852941176470588,4.9,Disponible,33,13,"[None, 5, None, None, None]",0,0,0,3,2,5.0
+mpg_championship_player_242167,Hamel,Pierre-Yves,mpg_championship_club_2338,FW,1,4.25,4.05,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_242194,Safonov,Matvey,mpg_championship_club_149,GK,14,5.607142857142857,5.41,Disponible,33,14,"[8, 5, 6, None, None]",0,8,12,0,0,6.33
+mpg_championship_player_242878,Bajic,Stefan,mpg_championship_club_153,GK,3,,,Disponible,32,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_242893,Gboho,Yann,mpg_championship_club_427,MF,20,5.612903225806452,5.47,Disponible,33,30,"[4, 3.5, None, 5.5, 7]",8,0,0,1,1,5.0
+mpg_championship_player_242894,Geubbels,Willem,mpg_championship_club_2338,FW,6,4.695652173913044,4.56,Disponible,32,11,"[4.5, 4, None, 7, 5.5]",5,0,0,0,0,5.25
+mpg_championship_player_243741,Magnetti,Hugo,mpg_championship_club_862,MF,15,5.3125,5.09,Disponible,33,31,"[5, 5, 4.5, 4, 4.5]",1,0,0,5,0,4.6
+mpg_championship_player_244560,Perraud,Romain,mpg_championship_club_429,DF,14,5.413793103448276,5.69,Disponible,33,26,"[8, 4.5, 6.5, 6, 6]",3,0,0,4,1,6.2
+mpg_championship_player_245485,Abdi,Ali,mpg_championship_club_1395,DF,13,4.9523809523809526,4.94,Disponible,33,12,"[6.5, None, 5, 6.5, 5]",3,0,0,2,1,5.75
+mpg_championship_player_247389,Owusu,Elisha,mpg_championship_club_138,MF,10,5.107142857142857,5.02,Disponible,33,26,"[5, 6, 4.5, 6, 5]",0,0,0,7,0,5.3
+mpg_championship_player_247400,Gouiri,Amine,mpg_championship_club_144,FW,18,5.333333333333333,5.42,Disponible,33,14,"[6.5, 4.5, None, 5, 4]",7,0,0,0,0,5.0
+mpg_championship_player_247417,Dønnum,Aron,mpg_championship_club_427,MF,14,5.25,5.6,Disponible,33,28,"[5, 5, 5, 4.5, 4]",4,0,0,8,1,4.7
+mpg_championship_player_249956,Diatta,Krépin,mpg_championship_club_146,MF,8,5.083333333333333,5.2,Disponible,33,10,"[5, 4.5, None, None, None]",0,0,0,2,0,4.75
+mpg_championship_player_250182,Tosin,Aiyegun,mpg_championship_club_694,FW,9,4.788461538461538,4.59,Disponible,33,11,"[5, 4.5, 4.5, 6.5, 5]",5,0,0,1,0,5.1
+mpg_championship_player_26894,Dante,,mpg_championship_club_1395,DF,7,4.863636363636363,5.15,Disponible,33,8,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_37838,Riou,Rémy,mpg_championship_club_2338,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_420566,Ndayishimiye,Youssouf,mpg_championship_club_1395,DF,4,4.5,3.67,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,1,
+mpg_championship_player_422215,Bodart,Arnaud,mpg_championship_club_429,GK,7,4.333333333333333,4.35,Disponible,33,2,"[None, None, None, None, None]",0,0,3,0,0,
+mpg_championship_player_422480,Talbi,Montassar,mpg_championship_club_694,DF,14,5.142857142857143,5.47,Disponible,33,28,"[None, None, None, 5, 6]",0,0,0,3,0,5.5
+mpg_championship_player_424032,Kouao,Koffi,mpg_championship_club_145,DF,13,4.777777777777778,5.28,Disponible,33,27,"[3, 4, None, None, 4.5]",2,0,0,10,0,3.83
+mpg_championship_player_424044,Traoré,Hamed,mpg_championship_club_144,MF,12,5.384615384615385,4.85,Disponible,31,7,"[6.5, 4.5, None, 4.5, None]",2,0,0,1,0,5.17
+mpg_championship_player_424920,Krasso,Jean-Philippe,mpg_championship_club_2338,FW,5,4.58,4.68,Disponible,33,12,"[None, None, None, None, None]",2,0,0,0,0,
+mpg_championship_player_424992,Özer,Berke,mpg_championship_club_429,GK,16,5.387096774193548,5.42,Disponible,33,31,"[6, 5, 6, 5, 6.5]",0,13,32,4,0,5.7
+mpg_championship_player_426342,Mousa Tamari,,mpg_championship_club_150,FW,17,5.46875,5.47,Disponible,33,24,"[7, 7.5, 6, 7, 4.5]",6,0,0,4,0,6.4
+mpg_championship_player_426634,Tessmann,Tanner,mpg_championship_club_143,MF,13,5.344827586206897,5.18,Disponible,33,22,"[4.5, 5, 5, None, None]",1,0,0,2,0,4.83
+mpg_championship_player_42766,Gurtner,Régis,mpg_championship_club_142,GK,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_428266,Köhn,Philipp,mpg_championship_club_146,GK,7,5.157894736842105,5.06,Disponible,33,17,"[None, None, None, None, None]",0,5,27,1,0,
+mpg_championship_player_428989,Cozza,Nicolas,mpg_championship_club_430,DF,9,4.793103448275862,4.99,Disponible,33,25,"[6, 5, 6, 6, 4]",0,0,0,2,0,5.4
+mpg_championship_player_430510,Mama Baldé,,mpg_championship_club_862,FW,4,4.888888888888889,4.63,Disponible,33,8,"[4.5, None, 5, 5, 4]",2,0,0,0,0,4.62
+mpg_championship_player_431245,Mostafa Mohamed,,mpg_championship_club_430,FW,5,4.645833333333333,4.52,Disponible,33,13,"[4.5, 7, 4.5, None, 4.5]",4,0,0,1,0,5.12
+mpg_championship_player_431422,Koyalipou,Goduine,mpg_championship_club_2128,FW,7,4.708333333333333,4.6,Disponible,14,6,"[4.5, 4.5, 4.5, 5.5, 6.5]",2,0,0,0,0,5.1
+mpg_championship_player_431426,Coudert,Grégoire,mpg_championship_club_862,GK,15,5.333333333333333,5.38,Disponible,33,23,"[4.5, 5.5, 4.5, 3, 6]",0,6,39,2,0,4.7
+mpg_championship_player_432711,Egan-Riley,CJ,mpg_championship_club_144,DF,7,5.0,5.12,Disponible,33,8,"[None, None, None, None, None]",0,0,0,1,1,
+mpg_championship_player_433312,Munetsi,Marshall,mpg_championship_club_2338,MF,17,5.464285714285714,5.03,Disponible,16,10,"[6.5, None, 4, 5.5, None]",4,0,0,0,0,5.33
+mpg_championship_player_433771,Ganago,Ignatius,mpg_championship_club_430,FW,7,4.961538461538462,4.92,Disponible,16,10,"[4.5, 5, 6, 7.5, 4.5]",3,0,0,1,0,5.5
+mpg_championship_player_436658,Deminguet,Jessy,mpg_championship_club_145,MF,9,4.870967741935484,4.64,Disponible,33,25,"[4.5, 4, 5.5, 7, 3]",2,0,0,4,0,4.8
+mpg_championship_player_437497,Bard,Melvin,mpg_championship_club_1395,DF,10,4.758620689655173,4.94,Disponible,33,26,"[5.5, 5, 5, 5, 4.5]",2,0,0,4,0,5.0
+mpg_championship_player_437858,Vitinha,,mpg_championship_club_149,MF,31,6.125,6.66,Disponible,33,23,"[5.5, 5, None, None, None]",1,0,0,2,0,5.25
+mpg_championship_player_438309,Dina Ebimbe,Junior,mpg_championship_club_862,MF,14,5.037037037037037,4.59,Disponible,30,15,"[4.5, 5, 6, 5, 4.5]",5,0,0,3,0,5.0
+mpg_championship_player_439750,Domínguez,Álex,mpg_championship_club_427,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_440148,Morton,Tyler,mpg_championship_club_143,MF,15,5.5344827586206895,5.36,Disponible,33,29,"[5, 5.5, 4.5, 5.5, 5]",2,0,0,6,1,5.1
+mpg_championship_player_440668,Kvaratskhelia,Khvicha,mpg_championship_club_149,FW,15,5.518518518518518,5.86,Disponible,33,17,"[6.5, 7, None, None, 5]",8,0,0,1,0,6.17
+mpg_championship_player_441240,Faivre,Romain,mpg_championship_club_138,MF,8,5.45,4.93,Disponible,16,7,"[5, 5.5, 5, None, None]",0,0,0,0,0,5.17
+mpg_championship_player_442264,Camara,Mahdi,mpg_championship_club_150,MF,18,5.32258064516129,5.01,Disponible,33,30,"[5.5, 6, 4.5, 4.5, 5.5]",3,0,0,4,1,5.2
+mpg_championship_player_44346,Giroud,Olivier,mpg_championship_club_429,FW,16,4.724137931034483,4.75,Disponible,33,17,"[5.5, 4.5, 4.5, 4, None]",7,0,0,2,0,4.62
+mpg_championship_player_444880,Biereth,Mika,mpg_championship_club_146,FW,12,4.645161290322581,4.54,Disponible,33,12,"[4.5, 4.5, 4.5, 4, 4.5]",2,0,0,0,0,4.4
+mpg_championship_player_445970,Sinayoko,Lassine,mpg_championship_club_138,FW,16,5.419354838709677,5.57,Disponible,33,31,"[4, 6.5, 4.5, 8.5, 7]",10,0,0,7,0,6.1
+mpg_championship_player_446090,Cásseres,Cristian,mpg_championship_club_427,MF,13,5.466666666666667,5.46,Disponible,33,28,"[4, 7, 5, 7.5, 5]",2,0,0,7,0,5.7
+mpg_championship_player_446682,Balerdi,Leonardo,mpg_championship_club_144,DF,8,5.06,5.47,Disponible,33,20,"[6, 4, 7, 4, 5.5]",0,0,0,5,0,5.3
+mpg_championship_player_447547,Brassier,Lilian,mpg_championship_club_150,DF,11,5.055555555555555,5.25,Disponible,33,25,"[5.5, 6, 6, 3.5, None]",0,0,0,2,0,5.25
+mpg_championship_player_448010,Russell-Rowe,Jacen,mpg_championship_club_427,FW,8,4.576923076923077,4.4,Disponible,13,5,"[4.5, 4.5, 6, 5, 4]",1,0,0,0,0,4.8
+mpg_championship_player_448093,Otávio,,mpg_championship_club_2338,DF,7,4.954545454545454,5.4,Disponible,33,20,"[None, 7, None, None, None]",1,0,0,6,1,7.0
+mpg_championship_player_448102,Pacho,Willian,mpg_championship_club_149,DF,14,5.391304347826087,6.01,Disponible,33,21,"[None, 5, 5.5, 4.5, None]",0,0,0,0,0,5.0
+mpg_championship_player_449784,Mambimbi,Felix,mpg_championship_club_141,FW,5,4.6875,4.37,Disponible,33,7,"[None, None, None, None, None]",1,0,0,1,0,
+mpg_championship_player_449980,Gonçalo Ramos,,mpg_championship_club_149,FW,15,4.827586206896552,4.93,Disponible,33,13,"[4.5, 3, 4, None, 4.5]",6,0,0,2,1,4.0
+mpg_championship_player_449986,Tiago Gouveia,,mpg_championship_club_1395,MF,5,4.433333333333334,4.36,Disponible,30,5,"[None, 4, None, None, None]",0,0,0,3,0,4.0
+mpg_championship_player_449991,Félix Correia,,mpg_championship_club_429,MF,14,5.5,5.11,Disponible,33,25,"[6.5, 4.5, 6, 5.5, 5.5]",4,0,0,2,0,5.6
+mpg_championship_player_450063,Timber,Quinten,mpg_championship_club_144,MF,10,4.821428571428571,4.66,Disponible,15,14,"[4.5, None, 4.5, 5, 5.5]",0,0,0,5,0,4.88
+mpg_championship_player_450527,Salisu,Mohammed,mpg_championship_club_146,DF,1,4.958333333333333,5.55,Disponible,33,12,"[None, None, None, None, None]",1,0,0,3,0,
+mpg_championship_player_451017,Tsitaishvili,Giorgi,mpg_championship_club_145,FW,13,5.106060606060606,4.65,Disponible,33,28,"[7, 5.5, 4, 5, 3.5]",3,0,0,3,0,5.0
+mpg_championship_player_451358,Lee Kang-In,,mpg_championship_club_149,MF,15,5.480769230769231,5.74,Disponible,33,18,"[None, 5, 8, 6, 5]",3,0,0,3,0,6.0
+mpg_championship_player_453106,Vanhoutte,Charles,mpg_championship_club_1395,MF,7,4.94,4.93,Disponible,30,20,"[5, None, 5, 5, None]",0,0,0,6,0,5.0
+mpg_championship_player_460267,Diop,Sofiane,mpg_championship_club_1395,MF,15,5.359375,5.08,Disponible,33,25,"[4.5, 5.5, 5.5, 6, 6]",8,0,0,5,0,5.5
+mpg_championship_player_462609,Abdelli,Himad,mpg_championship_club_144,MF,10,5.261904761904762,4.94,Disponible,33,12,"[5, 4.5, 5, None, None]",2,0,0,2,0,4.83
+mpg_championship_player_463513,Sidi Ali,Sofiane,mpg_championship_club_144,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_464984,Oppegård,Fredrik,mpg_championship_club_138,DF,11,4.956521739130435,4.73,Disponible,33,15,"[6, 5, 5, None, None]",0,0,0,1,1,5.33
+mpg_championship_player_465206,Nuno Mendes,,mpg_championship_club_149,DF,15,5.675,6.1,Disponible,33,13,"[None, None, 6, None, None]",4,0,0,1,0,6.0
+mpg_championship_player_465572,Khadra,Reda,mpg_championship_club_141,MF,5,5.0625,4.47,Disponible,30,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_465607,Fati,Ansu,mpg_championship_club_146,FW,13,5.229166666666667,5.21,Disponible,33,9,"[4.5, 6, 5, 6, 4.5]",10,0,0,1,0,5.2
+mpg_championship_player_465681,Fadiga,Bandiougou,mpg_championship_club_694,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_465702,Pembélé,Timothée,mpg_championship_club_141,DF,5,4.846153846153846,4.73,Disponible,16,2,"[4.5, 5, 5, 4.5, 4.5]",0,0,0,1,0,4.7
+mpg_championship_player_465954,Sulc,Pavel,mpg_championship_club_143,MF,21,5.576923076923077,5.37,Disponible,33,16,"[None, None, 4.5, 5, 4.5]",11,0,0,2,0,4.67
+mpg_championship_player_466117,Ahamada,Naouirou,mpg_championship_club_138,MF,10,5.392857142857143,4.75,Disponible,16,7,"[5.5, 5, 5, 5.5, 7]",0,0,0,0,0,5.6
+mpg_championship_player_466404,Omobamidele,Andrew,mpg_championship_club_153,DF,10,5.25,5.53,Disponible,33,12,"[5, 5.5, 6, 5, None]",1,0,0,4,0,5.38
+mpg_championship_player_468266,Saud Abdulhamid,,mpg_championship_club_142,DF,12,5.145833333333333,5.47,Disponible,33,13,"[None, 7, 6, 5, None]",2,0,0,3,1,6.0
+mpg_championship_player_468658,Lepaul,Estéban,mpg_championship_club_150,FW,31,5.696969696969697,5.51,Disponible,33,32,"[5, 7.5, 6, 7, 6.5]",20,0,0,3,0,6.4
+mpg_championship_player_469169,Jansson,Isak,mpg_championship_club_1395,FW,7,4.642857142857143,4.39,Disponible,33,7,"[4.5, 4, None, 4, 5]",1,0,0,3,0,4.38
+mpg_championship_player_469266,Gourna-Douath,Lucas,mpg_championship_club_141,MF,11,5.066666666666666,5.02,Disponible,15,14,"[4.5, 6, 4.5, 5.5, 4]",0,0,0,5,0,4.9
+mpg_championship_player_471203,Sahraoui,Osame,mpg_championship_club_429,MF,1,4.9411764705882355,4.92,Disponible,33,4,"[None, 4.5, None, None, None]",1,0,0,0,0,4.5
+mpg_championship_player_474120,Enciso,Julio,mpg_championship_club_153,MF,16,5.5,5.18,Disponible,30,21,"[6, 4.5, 4.5, 5, 7]",3,0,0,2,0,5.4
+mpg_championship_player_475344,Abner Vinícius,,mpg_championship_club_143,DF,14,5.22,5.42,Disponible,33,24,"[6, 5.5, 5, 6, 4.5]",3,0,0,4,1,5.4
+mpg_championship_player_476391,Adjei,Nathaniel,mpg_championship_club_694,DF,7,4.821428571428571,5.08,Disponible,33,8,"[4.5, 6, 4, 4, 6.5]",0,0,0,0,0,5.0
+mpg_championship_player_476404,Mbow,Moustapha,mpg_championship_club_2338,DF,14,5.145161290322581,5.5,Disponible,33,30,"[6, None, 5, 5.5, 4.5]",0,0,0,5,0,5.25
+mpg_championship_player_476502,Traoré,Boubacar,mpg_championship_club_145,MF,3,4.7368421052631575,4.7,Disponible,33,16,"[None, None, None, None, None]",1,0,0,3,0,
+mpg_championship_player_476791,Kyeremeh,Godson,mpg_championship_club_141,FW,4,4.884615384615385,4.73,Disponible,33,3,"[None, None, 4.5, None, None]",1,0,0,0,0,4.5
+mpg_championship_player_476882,Zinga,Melvin,mpg_championship_club_2128,GK,3,5.0,5.72,Disponible,33,2,"[None, None, None, None, None]",0,0,4,0,0,
+mpg_championship_player_476888,Mara,Sékou,mpg_championship_club_138,FW,6,4.730769230769231,4.78,Disponible,33,13,"[4, None, 4, 8, 6.5]",3,0,0,0,0,5.62
+mpg_championship_player_476894,Lepenant,Johann,mpg_championship_club_430,MF,11,5.185185185185185,4.96,Disponible,33,23,"[5.5, 5, 6.5, 6, 5.5]",0,0,0,4,0,5.7
+mpg_championship_player_477580,Zabarnyi,Illia,mpg_championship_club_149,DF,13,5.462962962962963,6.14,Disponible,33,25,"[7.5, 4, 6, None, 6]",1,0,0,6,0,5.88
+mpg_championship_player_477711,Chotard,Joris,mpg_championship_club_862,MF,13,5.234375,5.07,Disponible,32,31,"[4.5, 5.5, 6, 3.5, 5.5]",2,0,0,2,0,5.0
+mpg_championship_player_477724,Wahi,Elye,mpg_championship_club_1395,FW,13,5.038461538461538,4.99,Disponible,17,10,"[4, 4, 5.5, None, 4.5]",5,0,0,4,0,4.5
+mpg_championship_player_480779,Boudaoui,Hicham,mpg_championship_club_1395,MF,7,5.041666666666667,4.89,Disponible,33,18,"[4.5, None, 6, 5.5, 4.5]",1,0,0,6,0,5.12
+mpg_championship_player_482260,Kechta,Yassine,mpg_championship_club_141,MF,7,4.982758620689655,4.67,Disponible,33,13,"[None, 5, 7, 5, 5]",2,0,0,4,0,5.5
+mpg_championship_player_482380,Chergui,Samir,mpg_championship_club_2338,DF,5,4.857142857142857,5.25,Disponible,33,12,"[None, 6, None, None, None]",1,0,0,1,0,6.0
+mpg_championship_player_482394,Ba,Ousmane,mpg_championship_club_145,GK,3,,,Disponible,26,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_482616,Barcola,Bradley,mpg_championship_club_149,FW,31,5.482142857142857,5.72,Disponible,33,20,"[5, 4.5, 5, 5, 5]",10,0,0,2,0,4.9
+mpg_championship_player_483320,Igor Paixão,,mpg_championship_club_144,FW,19,5.413793103448276,5.31,Disponible,33,21,"[6.5, 4.5, None, 2.5, 6]",6,0,0,3,0,4.88
+mpg_championship_player_483867,Youté,Étienne,mpg_championship_club_141,DF,1,5.0,5.06,Disponible,33,3,"[None, None, None, 5, None]",0,0,0,2,0,5.0
+mpg_championship_player_484405,Nanasi,Sebastian,mpg_championship_club_153,MF,11,5.416666666666667,5.2,Disponible,33,10,"[7, 4, 7, 4, None]",5,0,0,0,0,5.5
+mpg_championship_player_484842,Haraldsson,Hákon,mpg_championship_club_429,MF,18,5.758064516129032,5.5,Disponible,33,28,"[6.5, 6, 5.5, 7, 6]",8,0,0,5,0,6.2
+mpg_championship_player_485064,Karabec,Adam,mpg_championship_club_143,MF,7,5.095238095238095,4.56,Disponible,33,11,"[None, 5, None, None, None]",1,0,0,3,0,5.0
+mpg_championship_player_485335,Chevalier,Lucas,mpg_championship_club_149,GK,7,5.4411764705882355,5.32,Disponible,33,17,"[None, None, None, None, None]",0,9,13,0,0,
+mpg_championship_player_486430,Okoh,Bryan,mpg_championship_club_138,DF,14,5.615384615384615,5.68,Disponible,14,12,"[4.5, 6, 6, 5.5, 6]",3,0,0,2,0,5.6
+mpg_championship_player_486858,Abuashvili,Giorgi,mpg_championship_club_145,FW,8,4.7272727272727275,4.51,Disponible,33,5,"[None, None, 4.5, 4.5, 4.5]",2,0,0,1,0,4.5
+mpg_championship_player_487441,Francis,Abu,mpg_championship_club_427,MF,1,5.3125,4.88,Disponible,33,7,"[None, None, None, None, None]",0,0,0,2,0,
+mpg_championship_player_487702,Koleosho,Luca,mpg_championship_club_2338,FW,9,5.166666666666667,4.98,Disponible,16,3,"[6, 6, 4.5, 6.5, 4.5]",3,0,0,0,0,5.5
+mpg_championship_player_488284,Abdul Samed,Salis,mpg_championship_club_1395,MF,3,4.777777777777778,4.61,Disponible,34,12,"[None, 5.5, 4.5, 5, 3.5]",0,0,0,3,0,4.62
+mpg_championship_player_489887,Rouault,Anthony,mpg_championship_club_150,DF,9,4.95,5.51,Disponible,33,18,"[None, None, None, None, 5]",1,0,0,5,0,5.0
+mpg_championship_player_490330,Ndiaye,Rassoul,mpg_championship_club_141,MF,17,5.6875,5.16,Disponible,33,29,"[6, 6, 5, None, 6]",4,0,0,2,0,5.75
+mpg_championship_player_490884,Cho,Mohamed-Ali,mpg_championship_club_1395,FW,8,5.065217391304348,5.0,Disponible,33,20,"[4, 5.5, 5.5, 4, 5]",4,0,0,1,0,4.8
+mpg_championship_player_490971,Kamanzi,Warren,mpg_championship_club_427,DF,8,5.041666666666667,5.01,Disponible,33,7,"[5, 4.5, 5, 5, 7]",1,0,0,1,0,5.3
+mpg_championship_player_491011,Moreira,Diego,mpg_championship_club_153,DF,12,5.4423076923076925,5.51,Disponible,33,22,"[6, None, 4.5, 5, None]",3,0,0,4,0,5.17
+mpg_championship_player_492373,Cresswell,Charlie,mpg_championship_club_427,DF,13,5.258620689655173,5.63,Disponible,33,28,"[5, 5, 4.5, 5, 5]",3,0,0,8,0,4.9
+mpg_championship_player_492975,Diomandé,Sinaly,mpg_championship_club_138,DF,11,5.173913043478261,5.34,Disponible,33,23,"[5.5, 6, 5, 6, 5.5]",2,0,0,2,1,5.6
+mpg_championship_player_493357,Coulibaly,Soumaïla,mpg_championship_club_862,DF,5,4.625,5.17,Disponible,33,15,"[None, 5.5, 3.5, None, None]",0,0,0,3,0,4.5
+mpg_championship_player_493900,Yongwa,Darlin,mpg_championship_club_694,DF,7,4.695652173913044,4.6,Disponible,33,14,"[5.5, 6, None, 5, None]",0,0,0,4,1,5.5
+mpg_championship_player_495382,Soumaré,Issa,mpg_championship_club_141,FW,14,5.151515151515151,5.17,Disponible,33,32,"[5, 6, 5.5, 6, 6]",7,0,0,3,0,5.7
+mpg_championship_player_499175,Nwaneri,Ethan,mpg_championship_club_144,MF,13,5.166666666666667,4.86,Disponible,15,3,"[None, 4.5, None, None, None]",2,0,0,1,0,4.5
+mpg_championship_player_499448,Mayulu,Senny,mpg_championship_club_149,MF,11,5.5,5.51,Disponible,33,21,"[5, 4, 6.5, 4.5, 7]",4,0,0,2,0,5.4
+mpg_championship_player_499450,Mbappé,Ethan,mpg_championship_club_429,MF,5,5.147058823529412,4.98,Disponible,33,4,"[5, 4.5, 5, 5, 5.5]",3,0,0,1,0,5.0
+mpg_championship_player_499724,Amo-Ameyaw,Sam,mpg_championship_club_153,FW,8,4.84,4.68,Disponible,33,9,"[4.5, 4, 5, 7, 5.5]",2,0,0,2,0,5.2
+mpg_championship_player_501334,Gueye,Lamine,mpg_championship_club_2338,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_501735,Kluivert,Ruben,mpg_championship_club_143,DF,7,5.066666666666666,5.19,Disponible,33,8,"[5, 5.5, 4, 5, None]",1,0,0,4,0,4.88
+mpg_championship_player_502436,Nkambadio,Obed,mpg_championship_club_2338,GK,7,5.0,4.84,Disponible,33,12,"[None, 6, None, None, None]",0,1,21,0,0,6.0
+mpg_championship_player_503037,Emegha,Emmanuel,mpg_championship_club_153,FW,6,5.25,5.22,Disponible,33,4,"[None, None, 4, 4.5, None]",4,0,0,3,0,4.25
+mpg_championship_player_503543,Baidoo,Samson,mpg_championship_club_142,DF,8,5.608695652173913,6.02,Disponible,33,20,"[4.5, 5, 5, 5.5, 6]",2,0,0,2,0,5.2
+mpg_championship_player_503720,Doué,Guéla,mpg_championship_club_153,DF,16,5.239130434782608,5.86,Disponible,33,22,"[5, None, None, None, 5]",2,0,0,3,0,5.0
+mpg_championship_player_503726,Abline,Matthis,mpg_championship_club_430,FW,15,5.109375,5.04,Disponible,33,27,"[5, 4.5, 5, 8, 4]",6,0,0,6,0,5.3
+mpg_championship_player_509201,Kevin Carlos,Kevin,mpg_championship_club_1395,FW,6,4.409090909090909,4.31,Disponible,32,9,"[4.5, None, 4, 4.5, 5]",0,0,0,3,0,4.5
+mpg_championship_player_509284,Casimir,Josué,mpg_championship_club_138,FW,5,4.65,4.46,Disponible,33,16,"[None, 4.5, 4.5, 5, 5]",1,0,0,4,1,4.75
+mpg_championship_player_509285,Sangante,Arouna,mpg_championship_club_141,DF,11,4.796296296296297,5.32,Disponible,33,27,"[4.5, 4, None, None, 5]",1,0,0,4,2,4.5
+mpg_championship_player_510136,Mohamed Abdelmonem,,mpg_championship_club_1395,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_511182,Kebbal,Ilan,mpg_championship_club_2338,MF,18,5.857142857142857,5.85,Disponible,33,26,"[None, 7, 4.5, 7, 4.5]",9,0,0,7,0,5.75
+mpg_championship_player_511344,Seidu,Alidu,mpg_championship_club_150,DF,8,5.0476190476190474,5.19,Disponible,33,13,"[5, 6, 5, 4, 5]",0,0,0,1,0,5.0
+mpg_championship_player_511975,Doukouré,Ismaël,mpg_championship_club_153,DF,10,5.020833333333333,5.24,Disponible,33,24,"[None, None, 5, 5.5, 5]",0,0,0,4,2,5.17
+mpg_championship_player_512126,Camara,Ousmane,mpg_championship_club_2128,DF,14,5.17741935483871,5.49,Disponible,33,30,"[4.5, 4.5, None, 3, 4.5]",1,0,0,4,0,4.12
+mpg_championship_player_512253,Alexsandro Ribeiro,,mpg_championship_club_429,DF,5,5.333333333333333,5.4,Disponible,33,7,"[None, None, None, None, 5]",0,0,0,0,1,5.0
+mpg_championship_player_512745,Touré,Isaak,mpg_championship_club_694,DF,1,5.0,5.25,Disponible,33,0,"[None, None, None, None, 5]",0,0,0,0,0,5.0
+mpg_championship_player_512759,Doucouré,Fodé,mpg_championship_club_141,DF,7,5.3,4.93,Disponible,33,14,"[5, 4.5, 6, 6, 5]",3,0,0,2,0,5.3
+mpg_championship_player_513545,Sangaré,Mamadou,mpg_championship_club_142,MF,18,5.637931034482759,5.81,Disponible,32,27,"[5.5, 6, 5.5, 6, None]",3,0,0,5,0,5.75
+mpg_championship_player_516211,Sima,Abdallah,mpg_championship_club_142,FW,7,4.85,4.79,Disponible,30,6,"[5, None, 6, 4.5, 5]",2,0,0,3,0,5.12
+mpg_championship_player_519343,Senaya,Marvin,mpg_championship_club_138,DF,9,4.875,5.03,Disponible,33,20,"[5, 5.5, 4.5, None, 5]",1,0,0,5,0,5.0
+mpg_championship_player_520295,David Datro Fofana,David Datro,mpg_championship_club_153,FW,6,4.3,4.2,Disponible,13,3,"[None, 4, None, None, None]",0,0,0,0,0,4.0
+mpg_championship_player_520403,Vanderson,,mpg_championship_club_146,DF,3,5.071428571428571,5.27,Disponible,33,7,"[None, None, None, None, None]",0,0,0,4,0,
+mpg_championship_player_523673,De Percin,Théo,mpg_championship_club_138,GK,7,5.3125,5.33,Disponible,33,5,"[None, 5, 4, 7, None]",0,0,9,0,0,5.33
+mpg_championship_player_524038,Guindo,Daouda,mpg_championship_club_862,DF,11,4.8125,4.89,Disponible,31,18,"[4, 4.5, 7, None, 5]",1,0,0,4,1,5.12
+mpg_championship_player_52482,Trapp,Kevin,mpg_championship_club_2338,GK,17,5.333333333333333,5.29,Disponible,32,21,"[6, None, 6, 6, 4.5]",0,7,28,2,0,5.62
+mpg_championship_player_530635,Ollila,Tuomas,mpg_championship_club_2338,DF,4,4.85,4.77,Disponible,33,3,"[None, None, None, 5, None]",0,0,0,0,0,5.0
+mpg_championship_player_531003,Merlin,Quentin,mpg_championship_club_150,DF,14,5.03125,5.35,Disponible,33,26,"[5.5, 5, 5.5, 3.5, 6]",1,0,0,2,0,5.1
+mpg_championship_player_531004,Dieng,Bamba,mpg_championship_club_694,FW,19,5.357142857142857,5.21,Disponible,33,14,"[4, 6.5, 5, 4.5, 6.5]",10,0,0,3,0,5.3
+mpg_championship_player_531092,Igamane,Hamza,mpg_championship_club_429,FW,1,5.1923076923076925,5.53,Disponible,31,4,"[None, None, None, None, None]",5,0,0,2,0,
+mpg_championship_player_531375,Oyedele,Maxi,mpg_championship_club_153,MF,7,4.9375,4.94,Disponible,33,6,"[None, 4.5, 5, 4, 4.5]",1,0,0,3,0,4.5
+mpg_championship_player_532104,Soumano,Sambou,mpg_championship_club_694,FW,7,4.733333333333333,4.55,Disponible,33,8,"[4.5, 4, 4.5, None, None]",4,0,0,2,0,4.33
+mpg_championship_player_532112,Sbaï,Amine,mpg_championship_club_2128,FW,12,4.854166666666667,4.54,Disponible,26,22,"[2.5, 5, 3.5, 3.5, None]",2,0,0,1,1,3.62
+mpg_championship_player_533146,Cadiou,Noah,mpg_championship_club_694,MF,16,5.296296296296297,5.2,Disponible,33,19,"[4, 5.5, 6, 4.5, 8]",3,0,0,1,0,5.6
+mpg_championship_player_534074,Ali Youssif,,mpg_championship_club_430,DF,8,5.208333333333333,5.24,Disponible,15,10,"[5.5, 6, 6, 5, 5]",0,0,0,4,0,5.5
+mpg_championship_player_534317,Beraldo,,mpg_championship_club_149,DF,6,5.7105263157894735,6.25,Disponible,33,17,"[6, 5, 8.5, 4, 5.5]",2,0,0,2,0,5.8
+mpg_championship_player_535818,Adingra,Simon,mpg_championship_club_146,FW,11,4.884615384615385,5.4,Disponible,13,9,"[4, 5, 5.5, 5, 4.5]",3,0,0,0,0,4.8
+mpg_championship_player_538078,Ngoy,Nathan,mpg_championship_club_429,DF,14,5.25,5.54,Disponible,33,26,"[6.5, None, 6, 5.5, 6]",1,0,0,9,1,6.0
+mpg_championship_player_538452,Mendy,Antoine,mpg_championship_club_1395,DF,9,4.770833333333333,5.0,Disponible,33,23,"[5, 6, 4.5, 4.5, 3.5]",1,0,0,5,0,4.7
+mpg_championship_player_539135,Sauer,Mário,mpg_championship_club_427,MF,9,4.98,4.7,Disponible,33,6,"[None, 4.5, 4.5, 5, None]",1,0,0,4,0,4.67
+mpg_championship_player_543158,Barco,Valentín,mpg_championship_club_153,DF,17,5.576923076923077,5.71,Disponible,33,23,"[5, None, None, None, None]",2,0,0,5,1,5.0
+mpg_championship_player_543215,El Azzouzi,Oussama,mpg_championship_club_138,MF,3,5.318181818181818,5.19,Disponible,33,10,"[None, None, None, None, None]",1,0,0,1,1,
+mpg_championship_player_543968,Emersonn,,mpg_championship_club_427,FW,9,4.722222222222222,4.87,Disponible,30,18,"[3.5, 3.5, 6, 6, 5]",6,0,0,5,1,4.8
+mpg_championship_player_544099,Meïté,Bamo,mpg_championship_club_694,DF,9,4.833333333333333,5.03,Disponible,33,22,"[3, 6, 4, None, None]",0,0,0,5,0,4.33
+mpg_championship_player_544821,Karim,Dermane,mpg_championship_club_694,MF,12,5.206896551724138,4.79,Disponible,33,15,"[None, None, 4.5, 5, 5.5]",1,0,0,3,0,5.0
+mpg_championship_player_544908,Coulibaly,Lasso,mpg_championship_club_138,MF,6,5.088235294117647,4.65,Disponible,33,1,"[5, None, None, 5, 5]",0,0,0,1,0,5.0
+mpg_championship_player_544947,Broholm,Marius,mpg_championship_club_429,FW,3,4.590909090909091,4.63,Disponible,33,3,"[None, None, None, None, None]",1,0,0,0,0,
+mpg_championship_player_545272,Danois,Kévin,mpg_championship_club_138,MF,16,5.359375,5.33,Disponible,33,31,"[4.5, 6, 6, 5.5, 5]",3,0,0,3,0,5.4
+mpg_championship_player_545711,Kaba,Mohamed,mpg_championship_club_430,MF,8,5.375,5.11,Disponible,14,11,"[5, None, 5.5, 6.5, 5.5]",0,0,0,2,0,5.62
+mpg_championship_player_546172,Restes,Guillaume,mpg_championship_club_427,GK,15,5.2727272727272725,5.25,Disponible,33,33,"[4, 7.5, 5, 6, 6]",0,9,45,3,0,5.7
+mpg_championship_player_546178,Nadir,Bilal,mpg_championship_club_144,MF,5,5.05,4.87,Disponible,33,5,"[None, 5, None, None, None]",0,0,0,4,1,5.0
+mpg_championship_player_546635,Locko,Bradley,mpg_championship_club_862,DF,10,4.8,5.06,Disponible,33,14,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_54694,Aubameyang,Pierre-Emerick,mpg_championship_club_144,FW,20,5.258620689655173,5.29,Disponible,33,22,"[6.5, 3.5, 4.5, 4, None]",9,0,0,1,0,4.62
+mpg_championship_player_549321,Lienard,Yann,mpg_championship_club_146,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_549737,Le Bris,Théo,mpg_championship_club_694,DF,1,5.196428571428571,5.18,Disponible,33,22,"[5, None, None, None, None]",2,0,0,0,0,5.0
+mpg_championship_player_549939,Penders,Mike,mpg_championship_club_153,GK,17,5.40625,5.33,Disponible,33,32,"[6, 3, 6, 5, 5.5]",0,8,43,3,0,5.1
+mpg_championship_player_549940,Fofana,Malick,mpg_championship_club_143,FW,4,5.590909090909091,5.11,Disponible,33,9,"[None, None, None, None, 4.5]",2,0,0,1,0,4.5
+mpg_championship_player_549946,Idumbo,Stanis,mpg_championship_club_146,MF,1,5.0625,4.9,Disponible,30,0,"[None, None, None, None, None]",1,0,0,0,0,
+mpg_championship_player_550090,Coppola,Diego,mpg_championship_club_2338,DF,12,5.458333333333333,5.93,Disponible,14,12,"[6, 6.5, 5, 7, 3.5]",0,0,0,1,0,5.6
+mpg_championship_player_550245,Rafael Luís,,mpg_championship_club_153,MF,1,4.75,4.68,Disponible,32,6,"[None, 3, 6.5, 4, 4]",0,0,0,0,0,4.38
+mpg_championship_player_550825,Housni,Ilyes,mpg_championship_club_149,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_550837,Doucouré,Sékou,mpg_championship_club_430,DF,1,5.5,5.58,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_550840,Zaïre-Emery,Warren,mpg_championship_club_149,MF,17,5.564516129032258,6.07,Disponible,33,26,"[None, 6, 5.5, 6, None]",3,0,0,3,0,5.83
+mpg_championship_player_550866,Buayi-Kiala,Nathan,mpg_championship_club_138,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_550867,Touré,Ousmane,mpg_championship_club_429,DF,1,4.0,5.13,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_550868,Negrel,Tom,mpg_championship_club_138,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_551150,João Neves,,mpg_championship_club_149,MF,19,5.775,5.92,Disponible,33,13,"[6, None, 5.5, 5.5, 5]",5,0,0,0,0,5.5
+mpg_championship_player_551191,Afonso Moreira,,mpg_championship_club_143,FW,8,5.5576923076923075,5.53,Disponible,33,17,"[5, 8, 5.5, 8, 6]",4,0,0,3,0,6.5
+mpg_championship_player_551462,Van Neck,Jelle,mpg_championship_club_144,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_551976,Pagis,Pablo,mpg_championship_club_694,FW,21,5.981481481481482,5.55,Disponible,33,21,"[6, 7, 7, 6, 7]",10,0,0,1,0,6.6
+mpg_championship_player_552015,Sy,Lamine,mpg_championship_club_138,DF,11,5.086956521739131,5.16,Disponible,33,16,"[None, 5, 4.5, 6, 5]",0,0,0,1,0,5.12
+mpg_championship_player_552285,Fischer,Jonathan,mpg_championship_club_145,GK,7,5.096153846153846,4.95,Disponible,33,25,"[None, None, None, None, None]",0,4,56,0,0,
+mpg_championship_player_555894,Akliouche,Maghnes,mpg_championship_club_146,MF,21,5.55,5.62,Disponible,33,27,"[5, 6, 6, 6, 5]",6,0,0,3,0,5.6
+mpg_championship_player_55948,André,Benjamin,mpg_championship_club_429,MF,14,5.6923076923076925,5.62,Disponible,33,25,"[8, 5, 6, 5.5, 5]",2,0,0,8,0,5.9
+mpg_championship_player_559827,Doumbia,Kamory,mpg_championship_club_862,MF,14,5.695652173913044,5.45,Disponible,33,21,"[4.5, None, None, 5, 5]",5,0,0,6,0,4.83
+mpg_championship_player_560247,Sangui,Nhoa,mpg_championship_club_2338,DF,12,4.961538461538462,5.09,Disponible,33,18,"[6, 5, 5, 5, 4.5]",0,0,0,0,0,5.1
+mpg_championship_player_560250,Sylla,Fodé,mpg_championship_club_142,MF,3,5.25,5.09,Disponible,33,1,"[None, None, None, None, 5]",0,0,0,0,0,5.0
+mpg_championship_player_564579,Magri,Frank,mpg_championship_club_427,FW,3,5.117647058823529,4.83,Disponible,33,16,"[None, None, None, None, None]",5,0,0,3,0,
+mpg_championship_player_564920,Ekomié,Jacques,mpg_championship_club_2128,DF,8,4.758064516129032,4.87,Disponible,33,25,"[4, 5, 4, 4, 5]",0,0,0,3,0,4.4
+mpg_championship_player_564992,Nuamah,Ernest,mpg_championship_club_143,FW,1,4.25,4.28,Disponible,33,0,"[None, None, None, 4, 4.5]",0,0,0,0,0,4.25
+mpg_championship_player_565877,Mouton,Louis,mpg_championship_club_2128,MF,12,5.046875,4.51,Disponible,33,24,"[4.5, 4.5, 5.5, 5, 5]",2,0,0,2,1,4.9
+mpg_championship_player_566406,Nadje,Guédé,mpg_championship_club_2128,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_56864,Coquelin,Francis,mpg_championship_club_430,MF,6,4.84375,4.7,Disponible,33,8,"[5, 5, None, 5, None]",0,0,0,2,0,5.0
+mpg_championship_player_569020,Brunner,Paris,mpg_championship_club_146,FW,5,4.166666666666667,4.24,Disponible,33,1,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_570810,Doué,Désiré,mpg_championship_club_149,MF,21,5.586956521739131,6.1,Disponible,33,16,"[7, 4.5, None, 6.5, 6.5]",7,0,0,0,0,6.12
+mpg_championship_player_57136,Kolodziejczak,Timothée,mpg_championship_club_2338,DF,3,4.636363636363637,4.83,Disponible,33,7,"[None, None, None, None, None]",0,0,0,2,0,
+mpg_championship_player_572584,Ouattara,Abdoul,mpg_championship_club_153,MF,11,5.2592592592592595,5.31,Disponible,33,18,"[6.5, None, 5, 5, 5]",2,0,0,2,0,5.38
+mpg_championship_player_57266,Bamba,Abdoulaye,mpg_championship_club_2128,DF,3,4.8,4.74,Disponible,33,2,"[None, None, 3.5, None, 5]",0,0,0,0,0,4.25
+mpg_championship_player_573062,Godo,Martial,mpg_championship_club_153,FW,17,5.5,5.12,Disponible,30,17,"[5.5, 4, 4.5, None, 6]",8,0,0,2,0,5.0
+mpg_championship_player_574193,Belkhdim,Yassin,mpg_championship_club_2128,MF,5,5.444444444444445,4.89,Disponible,33,26,"[None, None, None, None, None]",2,0,0,5,0,
+mpg_championship_player_575453,Hidalgo,Santiago,mpg_championship_club_427,FW,12,5.071428571428571,5.05,Disponible,33,14,"[4.5, 6, 4, 6, 6.5]",4,0,0,4,0,5.4
+mpg_championship_player_577107,Endrick,,mpg_championship_club_143,FW,16,5.733333333333333,6.06,Disponible,16,13,"[6.5, 7, 5, 8, 6]",5,0,0,3,1,6.5
+mpg_championship_player_577640,Sylla,Abakar,mpg_championship_club_430,DF,1,4.166666666666667,4.26,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_577726,Sanusi,Trevan,mpg_championship_club_694,FW,1,,,Disponible,30,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_578052,Mwanga,Junior,mpg_championship_club_153,MF,3,5.025,4.87,Disponible,33,20,"[None, 3, 4.5, None, None]",1,0,0,2,1,3.75
+mpg_championship_player_578498,Diallo,Zoumana,mpg_championship_club_1395,FW,1,4.5,4.29,Disponible,18,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_578500,Mawissa,Christian,mpg_championship_club_146,DF,7,4.823529411764706,5.22,Disponible,33,12,"[4.5, 4, 4, 4.5, 4]",0,0,0,3,0,4.2
+mpg_championship_player_578610,Nartey,Noah,mpg_championship_club_143,MF,10,5.2727272727272725,5.01,Disponible,15,5,"[5.5, None, None, 4.5, 5]",2,0,0,0,0,5.0
+mpg_championship_player_578612,Vermeeren,Arthur,mpg_championship_club_144,MF,4,4.947368421052632,4.76,Disponible,30,10,"[5.5, 5, 5, 4, 5]",0,0,0,1,1,4.9
+mpg_championship_player_579916,Quetant,Kenny,mpg_championship_club_141,FW,5,4.5,4.43,Disponible,18,4,"[None, None, None, None, None]",1,0,0,1,0,
+mpg_championship_player_579919,Obougou,Noam,mpg_championship_club_141,FW,1,5.1,4.89,Disponible,19,0,"[None, None, None, None, None]",1,0,0,0,0,
+mpg_championship_player_579921,Argney,Paul,mpg_championship_club_141,GK,3,5.5,5.18,Disponible,33,1,"[None, None, None, None, None]",0,0,1,0,0,
+mpg_championship_player_580671,Yegbe,Terry,mpg_championship_club_145,DF,5,4.369565217391305,4.71,Disponible,31,21,"[None, 4, 3.5, 4, 3]",0,0,0,3,0,3.62
+mpg_championship_player_580982,Mahamoud,Adel,mpg_championship_club_430,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_582399,Nnadi,Tochukwu,mpg_championship_club_144,MF,6,4.714285714285714,4.6,Disponible,13,3,"[5, None, 6, 3, 4.5]",0,0,0,1,0,4.62
+mpg_championship_player_584845,Risser,Robin,mpg_championship_club_142,GK,15,5.484848484848484,5.49,Disponible,33,33,"[4, 3, 4, 5, 6]",0,11,35,2,0,4.4
+mpg_championship_player_584863,Akpa,Clément,mpg_championship_club_138,DF,8,4.711538461538462,4.8,Disponible,33,21,"[None, None, 3.5, 5, 5.5]",0,0,0,2,1,4.67
+mpg_championship_player_584865,Wasbauer,Nicolas,mpg_championship_club_427,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_585496,Ouattara,Kassoum,mpg_championship_club_146,DF,3,4.666666666666667,5.02,Disponible,33,12,"[None, None, None, None, None]",0,0,0,3,0,
+mpg_championship_player_585597,Camara,Lamine,mpg_championship_club_146,MF,14,5.543478260869565,5.7,Disponible,33,21,"[4, None, 5.5, 5, 4.5]",1,0,0,5,0,4.75
+mpg_championship_player_586343,Mboup,Pathé,mpg_championship_club_862,FW,7,4.555555555555555,4.41,Disponible,30,8,"[5, 4, 5, 5, None]",1,0,0,6,0,4.75
+mpg_championship_player_586855,Mukau,Ngal'ayel,mpg_championship_club_429,MF,11,5.103448275862069,4.69,Disponible,33,18,"[6.5, 5.5, 5, 5.5, 5.5]",1,0,0,3,0,5.6
+mpg_championship_player_587583,Ebonog,Simon,mpg_championship_club_141,MF,11,4.9655172413793105,4.6,Disponible,33,21,"[4.5, 5, 5, 5, 5]",1,0,0,8,0,4.9
+mpg_championship_player_587710,Mboula,Michel,mpg_championship_club_145,DF,6,4.8076923076923075,5.11,Disponible,33,10,"[None, 5, 4.5, None, None]",0,0,0,2,0,4.75
+mpg_championship_player_588181,Tiago Santos,,mpg_championship_club_429,DF,9,4.7,4.85,Disponible,33,8,"[5, None, None, 5, None]",0,0,0,0,0,5.0
+mpg_championship_player_58926,El-Arabi,Youssef,mpg_championship_club_430,FW,4,4.76,4.53,Disponible,33,11,"[None, None, 4.5, None, 4.5]",3,0,0,0,0,4.5
+mpg_championship_player_59046,Immobile,Ciro,mpg_championship_club_2338,FW,11,4.958333333333333,4.91,Disponible,13,9,"[8, 7, 4, 4, 4]",2,0,0,2,0,5.4
+mpg_championship_player_592507,Diaz,Junior,mpg_championship_club_862,DF,11,5.35,5.46,Disponible,33,17,"[6, None, 5, None, 5.5]",0,0,0,4,0,5.5
+mpg_championship_player_592515,Labeau Lascary,Rémy,mpg_championship_club_862,FW,14,4.923076923076923,4.74,Disponible,33,12,"[5, 4.5, None, 4.5, 4.5]",5,0,0,2,0,4.62
+mpg_championship_player_592694,Mirbach,Alexis,mpg_championship_club_430,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_592883,Ndjantou,Quentin,mpg_championship_club_149,FW,1,4.8,4.83,Disponible,28,3,"[None, None, None, None, None]",1,0,0,1,0,
+mpg_championship_player_596121,Ganiou,Ismaëlo,mpg_championship_club_142,DF,14,5.340909090909091,5.6,Disponible,33,22,"[4.5, 7.5, 3.5, 6, 6]",3,0,0,2,1,5.5
+mpg_championship_player_596761,Panichelli,Joaquín,mpg_championship_club_153,FW,5,5.407407407407407,5.5,Disponible,33,24,"[None, None, None, None, None]",16,0,0,3,0,
+mpg_championship_player_59956,Gorgelin,Mathieu,mpg_championship_club_142,GK,7,,,Disponible,15,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_59957,Anthony Lopes,,mpg_championship_club_430,GK,16,5.370967741935484,5.36,Disponible,33,31,"[6, 4.5, 4, None, 6]",0,6,50,4,0,5.12
+mpg_championship_player_601946,Diop,Pape,mpg_championship_club_427,MF,13,5.633333333333334,5.38,Disponible,19,13,"[4.5, 5.5, 5, None, 5]",1,0,0,2,0,5.0
+mpg_championship_player_604124,Coulibaly,Mamadou,mpg_championship_club_146,MF,10,5.083333333333333,5.1,Disponible,33,15,"[3, 4.5, None, 5, 5]",3,0,0,7,1,4.38
+mpg_championship_player_606371,Avom,Arthur,mpg_championship_club_694,MF,12,5.133333333333334,5.02,Disponible,33,22,"[4.5, 5.5, 5, 5, 6.5]",2,0,0,3,0,5.3
+mpg_championship_player_606700,Lahmadi,Noah,mpg_championship_club_427,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_606701,Cissé,Djaoui,mpg_championship_club_150,MF,7,4.895833333333333,4.61,Disponible,33,12,"[None, 5, None, 5, 5]",0,0,0,3,0,5.0
+mpg_championship_player_606702,Jacquet,Jérémy,mpg_championship_club_150,DF,1,5.131578947368421,5.45,Disponible,33,19,"[None, None, None, None, None]",0,0,0,4,1,
+mpg_championship_player_606929,Biumla,Emmanuel,mpg_championship_club_2128,DF,3,4.25,4.06,Disponible,33,3,"[None, 5, 3, None, 5]",0,0,0,0,0,4.33
+mpg_championship_player_607132,Sy,Pape,mpg_championship_club_145,GK,13,4.8125,4.68,Disponible,33,8,"[6.5, 4, 4, 5, 2.5]",0,2,20,0,0,4.4
+mpg_championship_player_607473,Michal,Lucas,mpg_championship_club_145,FW,5,4.409090909090909,4.25,Disponible,33,2,"[4.5, 4.5, 4.5, None, None]",0,0,0,1,0,4.5
+mpg_championship_player_608237,Peprah Oppong,Kojo,mpg_championship_club_1395,DF,8,4.964285714285714,5.49,Disponible,33,27,"[5, 5, 5.5, 4.5, 4]",1,0,0,3,0,4.8
+mpg_championship_player_608246,Raolisoa,Lilian,mpg_championship_club_2128,DF,11,5.17741935483871,4.96,Disponible,33,20,"[5.5, 6, 4.5, 4.5, 5]",2,0,0,3,0,5.1
+mpg_championship_player_609640,Amougou,Mathis,mpg_championship_club_153,MF,4,4.818181818181818,4.57,Disponible,33,4,"[None, None, None, 4.5, 4.5]",0,0,0,1,0,4.5
+mpg_championship_player_611078,Acapandié,Mathieu,mpg_championship_club_430,DF,1,4.75,4.49,Disponible,33,2,"[None, 5, 5, 5, 4.5]",0,0,0,0,0,4.88
+mpg_championship_player_611560,Bombito,Moïse,mpg_championship_club_1395,DF,1,4.5,5.02,Disponible,33,2,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_612589,Sadibou Sané,Sadibou,mpg_championship_club_145,DF,8,4.5227272727272725,5.09,Disponible,33,21,"[4.5, 5, 4, 5.5, 3]",2,0,0,5,2,4.4
+mpg_championship_player_613221,Fernandez-Pardo,Matias,mpg_championship_club_429,FW,18,5.517857142857143,5.43,Disponible,33,26,"[7, 5, 6, 4, 3]",8,0,0,5,0,5.0
+mpg_championship_player_614167,Høgsberg,Lucas,mpg_championship_club_153,DF,6,4.8478260869565215,5.37,Disponible,33,21,"[5.5, 3.5, 5, 4.5, 5.5]",0,0,0,2,1,4.8
+mpg_championship_player_616227,Vossah,Alexis,mpg_championship_club_427,MF,8,4.826086956521739,4.67,Disponible,33,12,"[4.5, 5, 4.5, 5.5, 5]",1,0,0,5,1,4.9
+mpg_championship_player_616245,Azizi,Ilyas,mpg_championship_club_427,FW,3,4.666666666666667,4.61,Disponible,8,0,"[None, None, 4.5, 5, None]",0,0,0,0,0,4.75
+mpg_championship_player_616307,Reynaud,Louis,mpg_championship_club_427,DF,1,,,Disponible,16,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_61741,Johnsson,Karl-Johan,mpg_championship_club_153,GK,7,6.0,6.04,Disponible,33,1,"[None, None, None, None, None]",0,1,0,0,0,
+mpg_championship_player_618259,Louchet,Tom,mpg_championship_club_1395,DF,13,5.019230769230769,4.76,Disponible,33,14,"[5.5, 5, None, 4.5, 5]",3,0,0,1,1,5.0
+mpg_championship_player_619025,Djibirin,Harouna,mpg_championship_club_2128,FW,5,5.0,4.7,Disponible,26,1,"[None, None, None, None, None]",2,0,0,2,0,
+mpg_championship_player_619372,Mantsounga,Brad-Hamilton,mpg_championship_club_1395,DF,1,3.0,4.86,Disponible,18,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_619501,Aït Boudlal,Abdelhamid,mpg_championship_club_150,DF,7,5.131578947368421,5.16,Disponible,33,16,"[6, 7, 5, 3.5, 6]",2,0,0,3,1,5.5
+mpg_championship_player_619825,Dro Fernández,,mpg_championship_club_149,MF,8,5.409090909090909,5.23,Disponible,14,7,"[6, None, 5.5, 5, 5.5]",1,0,0,0,0,5.5
+mpg_championship_player_620409,Tincrès,Joan,mpg_championship_club_146,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_620413,Diallo,Tidiane,mpg_championship_club_153,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_622024,Bulatovic,Andrija,mpg_championship_club_142,MF,8,5.083333333333333,4.97,Disponible,33,5,"[4.5, 5.5, None, None, 6.5]",0,0,0,2,0,5.5
+mpg_championship_player_622368,Tabibou,Dehmaine,mpg_championship_club_430,MF,8,5.0,4.57,Disponible,33,14,"[5.5, 5, 5, None, 4.5]",1,0,0,4,0,5.0
+mpg_championship_player_622398,Zogbé,Luck,mpg_championship_club_862,DF,3,4.722222222222222,4.74,Disponible,33,3,"[None, 4.5, 5, 3, None]",0,0,0,0,0,4.17
+mpg_championship_player_622758,Anselmino,Aaron,mpg_championship_club_153,DF,3,5.166666666666667,4.87,Disponible,13,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_624190,Diarra,Lassine,mpg_championship_club_143,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_624764,Katseris,Panos,mpg_championship_club_694,DF,6,5.3,5.3,Disponible,33,7,"[4, 7, 5, 6, 6]",1,0,0,3,0,5.6
+mpg_championship_player_624772,Courcoul,Marius,mpg_championship_club_2128,MF,5,4.805555555555555,4.74,Disponible,33,3,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_624926,Camara,Adama,mpg_championship_club_2338,MF,10,5.125,4.97,Disponible,33,25,"[5.5, 4.5, 5.5, None, 5.5]",1,0,0,8,0,5.25
+mpg_championship_player_626881,Camara,Amady,mpg_championship_club_430,FW,3,4.4,4.34,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_626970,Bamba,Mohamed,mpg_championship_club_694,FW,1,4.555555555555555,4.49,Disponible,33,7,"[None, None, None, None, None]",1,0,0,3,0,
+mpg_championship_player_628017,Zouaoui,Yanis,mpg_championship_club_141,DF,12,4.95,5.02,Disponible,33,28,"[5.5, 5.5, 5, 6, 4.5]",1,0,0,7,0,5.3
+mpg_championship_player_628698,Edjouma,Noah,mpg_championship_club_429,FW,3,4.533333333333333,4.54,Disponible,33,3,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_631935,Faye,Abdoulaye,mpg_championship_club_694,DF,8,4.59375,5.03,Disponible,33,15,"[4, 6, 4, 4.5, 5.5]",0,0,0,8,0,4.8
+mpg_championship_player_632582,Koumbassa,Seny,mpg_championship_club_427,DF,5,5.0,4.9,Disponible,33,4,"[4.5, 6, None, None, 5]",1,0,0,0,0,5.17
+mpg_championship_player_632591,Jourdren,Ilan,mpg_championship_club_142,GK,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_632699,Pereira,Everton,mpg_championship_club_1395,MF,1,3.75,4.01,Disponible,17,2,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_632700,Boudache,Kail,mpg_championship_club_1395,MF,6,4.5,4.38,Disponible,15,2,"[None, 4.5, 4.5, 4.5, None]",1,0,0,0,0,4.5
+mpg_championship_player_632793,Kango,Steeve,mpg_championship_club_143,DF,4,5.0,4.77,Disponible,9,1,"[5, None, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_632794,Bamba,Aladji,mpg_championship_club_146,MF,7,4.9411764705882355,4.98,Disponible,33,10,"[4.5, 4, None, 5, 4]",0,0,0,2,0,4.38
+mpg_championship_player_632880,Bah,Juma,mpg_championship_club_1395,DF,8,4.846153846153846,5.22,Disponible,33,22,"[None, 6, 5.5, 5.5, 4]",0,0,0,7,0,5.25
+mpg_championship_player_633103,Mathys de Carvalho,Mathys,mpg_championship_club_143,MF,1,5.136363636363637,4.84,Disponible,33,3,"[None, None, None, 5, None]",0,0,0,1,0,5.0
+mpg_championship_player_633269,Marin,Renato,mpg_championship_club_149,GK,3,5.0,5.56,Disponible,33,2,"[None, None, None, 4, 6]",0,1,2,0,0,5.0
+mpg_championship_player_633711,Cabral,Pape,mpg_championship_club_146,MF,1,4.875,4.88,Disponible,28,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_634263,Nagida,Aboubakar,mpg_championship_club_150,DF,8,4.888888888888889,5.02,Disponible,33,6,"[5, 5, 5, 4.5, 5]",0,0,0,2,0,4.9
+mpg_championship_player_634346,Bermont,Anthony,mpg_championship_club_142,MF,5,5.05,4.71,Disponible,33,0,"[None, None, None, None, 5]",0,0,0,0,0,5.0
+mpg_championship_player_634349,Delplace,Adam,mpg_championship_club_142,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_634376,Fofana,Rayan,mpg_championship_club_142,FW,10,4.98,4.82,Disponible,33,7,"[None, 4.5, None, None, 5]",5,0,0,0,0,4.75
+mpg_championship_player_634422,Abdallah,Keyliane,mpg_championship_club_144,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_634871,Antonio,Kyllian,mpg_championship_club_142,DF,1,5.666666666666667,5.79,Disponible,33,1,"[5, None, None, None, None]",0,0,0,1,0,5.0
+mpg_championship_player_634897,Celik,Nidal,mpg_championship_club_142,DF,6,4.642857142857143,4.92,Disponible,33,7,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_635774,Sajous,Thomas,mpg_championship_club_429,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_636196,Monteiro,Laurenzo,mpg_championship_club_1395,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_637238,Bouaddi,Ayyoub,mpg_championship_club_429,MF,13,5.224137931034483,4.92,Disponible,33,27,"[None, 5, 4.5, 5, 5.5]",0,0,0,7,1,5.0
+mpg_championship_player_637671,Youssouf,Mousslim,mpg_championship_club_1395,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_638407,Saïd Mchindra,Naïme,mpg_championship_club_427,GK,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_638411,Methalie,Dayann,mpg_championship_club_427,DF,5,4.592592592592593,4.93,Disponible,33,22,"[2, 4, 5, 5.5, 6.5]",2,0,0,9,0,4.6
+mpg_championship_player_638987,Mbaye,Ibrahim,mpg_championship_club_149,FW,5,4.804347826086956,5.14,Disponible,33,10,"[6, None, 5, 6, None]",3,0,0,0,0,5.67
+mpg_championship_player_639171,Baret,Lilian,mpg_championship_club_429,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_640619,Himbert,Rémi,mpg_championship_club_143,MF,5,4.583333333333333,4.39,Disponible,16,1,"[None, None, None, None, None]",1,0,0,0,0,
+mpg_championship_player_640620,Jangéal,Mathis,mpg_championship_club_149,MF,1,4.5,4.2,Disponible,28,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_641036,Makalou,Hamidou,mpg_championship_club_862,MF,5,4.96875,4.49,Disponible,33,1,"[5, 5, None, 6, 5]",0,0,0,0,0,5.25
+mpg_championship_player_641216,Touré,Alpha,mpg_championship_club_145,MF,6,4.775862068965517,4.53,Disponible,33,15,"[5.5, None, 5, None, None]",0,0,0,5,0,5.25
+mpg_championship_player_643101,Prouchet,Killian,mpg_championship_club_2338,DF,1,,,Disponible,22,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_643297,Kiwa,Bradel,mpg_championship_club_146,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_643307,El Mourabet,Samir,mpg_championship_club_153,MF,16,5.40625,5.36,Disponible,33,24,"[5.5, 5, 5, 5.5, None]",1,0,0,4,0,5.25
+mpg_championship_player_645307,Pona,Oumar,mpg_championship_club_2128,GK,7,3.75,3.84,Disponible,33,2,"[None, None, None, None, None]",0,0,7,1,0,
+mpg_championship_player_645319,Diallo,Alpha,mpg_championship_club_142,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_645598,Yassine,Gessime,mpg_championship_club_153,MF,9,5.166666666666667,4.87,Disponible,16,6,"[None, 4.5, 6, 4.5, 4]",0,0,0,0,0,4.75
+mpg_championship_player_646525,Mongo,Enzo,mpg_championship_club_430,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_647907,Deuff,Bahmed,mpg_championship_club_430,MF,1,4.818181818181818,4.29,Disponible,33,1,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_647908,Guirassy,Herba,mpg_championship_club_430,FW,6,4.8,4.69,Disponible,33,9,"[None, None, 5, None, None]",2,0,0,2,0,5.0
+mpg_championship_player_647916,Leroux,Louis,mpg_championship_club_430,MF,5,4.826086956521739,4.58,Disponible,33,16,"[None, 5, 5, 5.5, 4.5]",1,0,0,2,0,5.0
+mpg_championship_player_648307,Lawson,Yannis,mpg_championship_club_145,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_648413,Vignolo,Julián,mpg_championship_club_427,FW,5,4.846153846153846,4.61,Disponible,32,1,"[None, None, 4.5, None, None]",2,0,0,0,0,4.5
+mpg_championship_player_651819,Kouassi,Arsène,mpg_championship_club_694,DF,15,5.333333333333333,5.48,Disponible,33,29,"[4.5, None, 5, 4.5, 7]",2,0,0,4,0,5.25
+mpg_championship_player_652156,Stawiecki,Jules,mpg_championship_club_146,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_652158,Kanté,Ibrahim,mpg_championship_club_862,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_652987,Zabiri,Yassir,mpg_championship_club_150,FW,5,4.416666666666667,4.37,Disponible,13,0,"[None, 4.5, 4.5, 4.5, None]",0,0,0,0,0,4.5
+mpg_championship_player_653269,Mmadi,Tadjidine,mpg_championship_club_144,MF,1,4.5,4.14,Disponible,24,0,"[None, None, 4, None, None]",0,0,0,0,0,4.0
+mpg_championship_player_654497,Garnier,Erawan,mpg_championship_club_142,MF,3,4.5,4.39,Disponible,15,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_656314,Messali,Rafik,mpg_championship_club_427,MF,4,5.125,4.81,Disponible,33,5,"[None, None, None, None, None]",0,0,0,2,0,
+mpg_championship_player_658062,Louër,Marius,mpg_championship_club_2128,DF,7,4.833333333333333,4.86,Disponible,33,6,"[4, 5, None, 4.5, 6]",0,0,0,1,0,4.88
+mpg_championship_player_658332,Coulibaly,Djibril,mpg_championship_club_1395,MF,3,4.75,4.72,Disponible,33,0,"[None, 5, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_659392,Devernois,Tidiane,mpg_championship_club_138,MF,1,5.0,4.41,Disponible,30,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_659396,Rodin,Ryan,mpg_championship_club_138,FW,3,4.333333333333333,4.13,Disponible,30,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_664882,Mosengo,Daren,mpg_championship_club_141,MF,4,4.928571428571429,4.83,Disponible,33,0,"[None, 5, 5, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_664883,Zohouri,Guy Noël,mpg_championship_club_141,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_664943,Jauny,Noah,mpg_championship_club_862,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_665234,Bernardeau,Gabin,mpg_championship_club_1395,MF,1,5.125,4.45,Disponible,33,1,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_666764,Diop,Saliou,mpg_championship_club_862,FW,1,4.5,4.47,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_668892,Rosier,Lucas,mpg_championship_club_150,FW,1,4.5,4.11,Disponible,24,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_669409,Diaoune,Soriba,mpg_championship_club_429,FW,5,4.75,4.81,Disponible,33,1,"[None, None, None, None, None]",1,0,0,0,0,
+mpg_championship_player_669414,Goffi,Maxima,mpg_championship_club_429,DF,1,5.0,5.09,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_66957,Cabella,Rémy,mpg_championship_club_430,MF,8,5.318181818181818,4.98,Disponible,17,6,"[4.5, None, None, 7, None]",2,0,0,1,0,5.75
+mpg_championship_player_669580,Kamara,Noham,mpg_championship_club_143,DF,1,5.0,4.54,Disponible,33,0,"[None, 5, None, None, None]",0,0,0,0,0,5.0
+mpg_championship_player_669586,Nsoki,Noah,mpg_championship_club_149,MF,1,5.0,4.35,Disponible,17,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_669617,Slama,Wassim,mpg_championship_club_149,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_669996,Lachaab,Younes,mpg_championship_club_429,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_670270,Irie,Paris,mpg_championship_club_862,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_672275,Munongo,Believe,mpg_championship_club_145,MF,6,4.7,4.4,Disponible,17,4,"[None, None, None, 5, 4.5]",0,0,0,1,0,4.75
+mpg_championship_player_672280,Hamdani,Adil,mpg_championship_club_143,FW,5,4.625,4.47,Disponible,21,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_674605,Moussaoui,Amine,mpg_championship_club_2128,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_678291,Le Guen,Raphaël,mpg_championship_club_862,DF,4,4.6,4.8,Disponible,33,3,"[5, None, None, 2, 6]",0,0,0,0,0,4.33
+mpg_championship_player_68166,Hanin,Florent,mpg_championship_club_2128,DF,8,4.916666666666667,4.86,Disponible,33,8,"[5, None, 5, 5, 5]",0,0,0,0,0,5.0
+mpg_championship_player_684058,Do Marcolino,Henrick,mpg_championship_club_150,FW,1,5.0,4.3,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_68675,Hrádecky,Lukás,mpg_championship_club_146,GK,14,5.21875,5.09,Disponible,33,16,"[3, 4, 5, 4.5, 5]",0,2,22,1,0,4.3
+mpg_championship_player_690535,Lung,Sacha,mpg_championship_club_153,DF,1,,,Disponible,31,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_691225,Zagadou,Stephan,mpg_championship_club_141,DF,7,5.125,5.06,Disponible,26,6,"[5, None, None, None, None]",1,0,0,0,1,5.0
+mpg_championship_player_691255,Kodia,Ghianny,mpg_championship_club_153,FW,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_692877,Legendre,Elías,mpg_championship_club_150,FW,1,4.333333333333333,4.29,Disponible,20,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_694358,Matondo,Rudy,mpg_championship_club_2338,MF,9,5.076923076923077,4.6,Disponible,33,13,"[4.5, 6.5, 5.5, 8.5, 5]",2,0,0,4,1,6.0
+mpg_championship_player_695285,Siwe,Telli,mpg_championship_club_138,DF,1,4.333333333333333,4.6,Disponible,33,3,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_695367,Merah,Khalis,mpg_championship_club_143,MF,8,5.045454545454546,4.75,Disponible,33,15,"[None, 6, 5.5, 6, 4.5]",0,0,0,2,0,5.5
+mpg_championship_player_695695,Peter,Prosper,mpg_championship_club_2128,FW,12,4.482758620689655,4.49,Disponible,33,14,"[7, 6, 3, 3.5, 4]",5,0,0,0,0,4.7
+mpg_championship_player_696404,Machine,Lanroy,mpg_championship_club_2128,FW,7,4.428571428571429,4.45,Disponible,33,3,"[4, 4.5, 4.5, 4.5, 4.5]",1,0,0,1,0,4.4
+mpg_championship_player_696920,Guerti,Ismaël,mpg_championship_club_145,MF,1,4.666666666666667,4.44,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_697407,Legros,Elikya,mpg_championship_club_138,DF,1,,,Disponible,31,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_702079,Maréchal,Max,mpg_championship_club_153,MF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_703929,Tati,Tylel,mpg_championship_club_430,DF,5,4.425,4.74,Disponible,33,20,"[None, None, None, None, None]",0,0,0,5,1,
+mpg_championship_player_704012,Mélières,Cleo,mpg_championship_club_145,DF,1,4.5,4.33,Disponible,33,0,"[None, None, None, None, None]",0,0,0,1,0,
+mpg_championship_player_704632,Garin,Ilann,mpg_championship_club_2128,MF,1,,,Disponible,32,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_704747,Gomis,Georges,mpg_championship_club_141,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_704820,Siba,Stevan,mpg_championship_club_694,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_704821,Leaudais,Lucas,mpg_championship_club_694,DF,1,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_705930,Silistre,Mathys,mpg_championship_club_150,GK,7,3.0,3.37,Disponible,31,1,"[None, None, None, None, None]",0,0,3,0,0,
+mpg_championship_player_705932,Mukiele,Nordan,mpg_championship_club_150,FW,5,4.714285714285714,4.59,Disponible,32,0,"[4.5, None, 4.5, 4.5, None]",1,0,0,0,0,4.5
+mpg_championship_player_709797,Bley,Martin,mpg_championship_club_694,MF,1,4.5,4.49,Disponible,20,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_711491,Koffi,Enzo,mpg_championship_club_141,DF,7,4.5,4.47,Disponible,28,3,"[None, None, None, 4.5, 4.5]",0,0,0,1,0,4.5
+mpg_championship_player_724956,Mbala,Nathan,mpg_championship_club_145,FW,8,5.1923076923076925,4.89,Disponible,14,4,"[4.5, 4.5, 7, 5, 5]",2,0,0,0,0,5.2
+mpg_championship_player_725822,Daniel Semedo,,mpg_championship_club_694,MF,1,5.0,4.81,Disponible,10,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_73955,Négo,Loïc,mpg_championship_club_141,DF,11,5.086206896551724,5.19,Disponible,33,26,"[5, 5, 4.5, 5.5, None]",0,0,0,3,0,5.0
+mpg_championship_player_74208,Pogba,Paul,mpg_championship_club_146,MF,5,5.0,4.82,Disponible,33,1,"[5, None, 5, 5, None]",0,0,0,0,0,5.0
+mpg_championship_player_75987,Leroy,Benjamin,mpg_championship_club_694,GK,3,,,Disponible,33,0,"[None, None, None, None, None]",0,0,0,0,0,
+mpg_championship_player_80710,Stambouli,Benjamin,mpg_championship_club_145,MF,3,4.722222222222222,4.64,Disponible,33,9,"[None, 5, 4.5, 5.5, 4.5]",0,0,0,0,0,4.88
+mpg_championship_player_86132,Colin,Maxime,mpg_championship_club_145,DF,7,4.476190476190476,4.78,Disponible,33,17,"[4, None, None, None, None]",0,0,0,1,0,4.0
+mpg_championship_player_86479,Tagliafico,Nicolás,mpg_championship_club_143,DF,8,5.05,5.38,Disponible,33,14,"[None, None, 5, None, None]",0,0,0,4,2,5.0
+mpg_championship_player_86813,Mandi,Aïssa,mpg_championship_club_429,DF,14,5.464285714285714,5.95,Disponible,33,27,"[6, 6, 6, 5.5, 6]",1,0,0,8,0,5.9
+mpg_championship_player_88754,Kondogbia,Geoffrey,mpg_championship_club_144,MF,7,5.5,5.39,Disponible,33,9,"[None, None, None, None, None]",0,0,0,3,0,
+mpg_championship_player_92527,Lala,Kenny,mpg_championship_club_862,DF,10,4.693548387096774,5.09,Disponible,33,30,"[5, 5, 3.5, 3, None]",0,0,0,4,0,4.12
+mpg_championship_player_93264,Dier,Eric,mpg_championship_club_146,DF,1,4.944444444444445,5.36,Disponible,33,7,"[None, None, 5, None, None]",1,0,0,0,0,5.0
+mpg_championship_player_93605,Meunier,Thomas,mpg_championship_club_429,DF,13,5.3,5.58,Disponible,33,21,"[6.5, 5, 5.5, 4.5, 6.5]",1,0,0,3,0,5.6
+mpg_championship_player_95434,Thauvin,Florian,mpg_championship_club_142,MF,26,5.8125,5.65,Disponible,33,28,"[5, 5.5, 6, 5, None]",10,0,0,6,0,5.38
+mpg_championship_player_97288,Dupé,Maxime,mpg_championship_club_1395,GK,7,4.8125,4.72,Disponible,33,8,"[None, None, None, None, None]",0,1,15,0,0,
