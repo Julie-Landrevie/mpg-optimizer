@@ -2,9 +2,10 @@
 
 > Analyse de données et optimisation de stratégie pour **Mon Petit Gazon** — le fantasy football français.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mpg-optimizer.streamlit.app)
+🌐 **[Ouvrir l'application](https://mpg-optimizer.streamlit.app)** — mpg-optimizer.streamlit.app
+
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)
-![Status](https://img.shields.io/badge/status-en%20production-brightgreen)
+![Status](https://img.shields.io/badge/status-en_production-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
