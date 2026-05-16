@@ -2,9 +2,19 @@
 
 > Analyse de données et optimisation de stratégie pour **Mon Petit Gazon** — le fantasy football français.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
-![Status](https://img.shields.io/badge/status-en%20développement-yellow)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mpg-optimizer.streamlit.app)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)
+![Status](https://img.shields.io/badge/status-en%20production-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
+
+---
+
+## 🌐 Application en ligne
+
+**👉 [mpg-optimizer.streamlit.app](https://mpg-optimizer.streamlit.app)**
+
+L'application est accessible publiquement — aucune installation requise.
+Elle se met à jour automatiquement depuis l'API MPG officielle toutes les heures.
 
 ---
 
@@ -14,10 +24,11 @@ Ce projet exploite les données disponibles autour de la Ligue 1 pour prendre de
 
 | Module | Description | Statut |
 |--------|-------------|--------|
-| 🔌 **Collecte de données** | API MPG officielle + FBref + Understat | ✅ Fait |
-| 📊 **Analyse joueurs** | Stats avancées, forme récente, scoring composite | ✅ Fait |
-| 🧠 **Optimisation compo** | Meilleur XI selon budget & contraintes | ✅ Fait |
-| 💸 **Stratégie mercato** | Détection de pépites & joueurs surcotés | ✅ Fait |
+| 🔌 **Collecte de données** | API MPG officielle + FBref (520 joueurs croisés) | ✅ Fait |
+| 📊 **Scoring joueurs** | Notes MPG + forme récente + stats, pondérés par poste | ✅ Fait |
+| 🧠 **Optimiseur XI** | Meilleur XI selon budget, formation & contraintes | ✅ Fait |
+| 💸 **Pépites & forme** | Détection des bonnes affaires et joueurs en montée | ✅ Fait |
+| 📓 **Analyse exploratoire** | Notebook Jupyter avec graphiques et insights | ✅ Fait |
 
 ---
 
@@ -25,159 +36,108 @@ Ce projet exploite les données disponibles autour de la Ligue 1 pour prendre de
 
 ```
 mpg-optimizer/
+├── app.py                    # Interface Streamlit (point d'entrée)
+├── requirements.txt
 ├── data/
-│   ├── raw/              # Données brutes téléchargées (non versionnées)
-│   └── processed/        # Données nettoyées et prêtes à l'analyse
-├── notebooks/            # Exploration & prototypage Jupyter
+│   └── raw/                  # Données brutes (non versionnées)
+├── notebooks/
+│   └── mpg_analyse_exploratoire.ipynb  # Analyse exploratoire complète
 ├── src/
 │   ├── data/
-│   │   └── collect.py        # Collecte : API MPG + FBref + croisement
+│   │   └── collect.py        # Collecte : API MPG + FBref + croisement 3 passes
 │   ├── analysis/
 │   │   ├── player_rating.py  # Scoring composite des joueurs
 │   │   └── mercato.py        # Détection de pépites & analyse de forme
 │   └── optimization/
 │       └── lineup.py         # Optimisation du XI (programmation linéaire)
-├── tests/
-│   └── test_player_rating.py # Tests unitaires
-├── docs/                 # Documentation technique
-├── requirements.txt
-└── README.md
+└── tests/
+    └── test_player_rating.py
 ```
 
 ---
 
 ## 📦 Sources de données
 
-Ce projet croise **3 sources complémentaires** pour avoir l'image la plus complète possible :
+Ce projet croise **2 sources complémentaires** :
 
-### 1. 🟢 API officielle MPG — *la source principale*
+### 🟢 API officielle MPG — *la source principale*
 L'application MPG expose ses propres données via une API publique.
-C'est la **source de vérité** : ce sont exactement les cotations et les notes que tu vois dans l'appli.
+C'est la **source de vérité** : cotations et notes officielles de l'appli.
 
-Ce qu'elle fournit :
-- **La cotation** (prix en millions) de chaque joueur
-- **La note moyenne** de saison (l'`avg_rating` officielle)
-- **L'historique des notes** journée par journée → pour calculer la forme récente
-- **Le statut** du joueur (disponible, blessé, suspendu)
-- **Le poste** selon le système MPG (GK / DF latéral / DF central / MF déf / MF off / FW)
+- Cotation (prix en millions) de chaque joueur
+- Note moyenne de saison (`avg_rating`)
+- Historique des 5 dernières notes → forme récente
+- Statut (disponible, blessé, suspendu)
+- Poste selon le système MPG (GK / DF / MF / FW)
 
-### 2. 🔵 FBref — *les stats avancées*
-[FBref](https://fbref.com) est une base de données football gratuite et très complète.
-Elle fournit des statistiques que l'API MPG ne donne pas directement :
-- **xG** (expected goals) : qualité des occasions de but créées
-- **xA** (expected assists) : qualité des passes menant à des tirs
-- Tirs, tirs cadrés, passes progressives, tacles, interceptions...
+### 🔵 FBref — *les stats avancées*
+[FBref](https://fbref.com) fournit des statistiques complémentaires :
+buts, passes décisives, minutes jouées, et métriques per 90 minutes.
 
-> 💡 **xG et xA en deux mots :** ces métriques mesurent la *qualité* des actions, pas juste le résultat.
-> Un attaquant qui rate 15 occasions faciles a un xG élevé mais peu de vrais buts — c'est utile
-> pour savoir s'il va finir par marquer ou si c'est structurel.
-
-### 3. 🔴 Understat *(prévu)*
-[Understat](https://understat.com) affine les xG avec des modèles encore plus précis.
-Intégration prévue dans une prochaine version.
-
-### Comment les données sont croisées
-
+**Matching MPG × FBref : algorithme 3 passes**
 ```
-API MPG (cotations + notes)
-        │
-        ▼
-  Normalisation des noms  ────▶  FBref (xG, tirs, passes...)
-  (suppression accents,               │
-   mise en minuscules)                ▼
-        │                    Dataset Master complet
-        │                    (une ligne par joueur,
-        ▼                     ~30 colonnes)
-  Historique notes MPG ───▶  Ajout de la forme récente
-  (5 dernières journées)     (recent_form_avg)
+Passe 1 : prénom + nom exact     → 417 joueurs
+Passe 2 : nom seul unique        →  67 joueurs
+Passe 3 : lookup dictionnaire    →  36 joueurs
+─────────────────────────────────────────────
+Total : 520 joueurs croisés sur 514 (était 27 avant)
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Installation locale
 
 ```bash
 # 1. Cloner le repo
-git clone https://github.com/<ton-username>/mpg-optimizer.git
+git clone https://github.com/Julie-Landrevie/mpg-optimizer.git
 cd mpg-optimizer
 
-# 2. Créer un environnement virtuel (bonne pratique pour isoler les dépendances)
+# 2. Créer un environnement virtuel
 python -m venv venv
 source venv/bin/activate    # macOS / Linux
-# ou : venv\Scripts\activate  # Windows
 
 # 3. Installer les dépendances
 pip install -r requirements.txt
+
+# 4. Lancer l'application
+streamlit run app.py
 ```
 
 ---
 
-## 🧪 Utilisation rapide
+## 🧪 Utilisation en ligne de commande
 
-```python
-from src.data.collect import build_master_dataset
-from src.analysis.player_rating import compute_ratings, get_top_players
-from src.analysis.mercato import compute_value_score, find_undervalued
-from src.optimization.lineup import optimize_xi, print_xi
+```bash
+# Collecter les données MPG + FBref
+python -m src.data.collect
 
-# ── Étape 1 : Récupérer et croiser toutes les données ──
-# Cette fonction appelle l'API MPG + FBref et fusionne tout automatiquement
-df = build_master_dataset(season=2025)
-
-# ── Étape 2 : Calculer le score composite de chaque joueur ──
-# Combine la note MPG officielle + les stats FBref, pondérés par poste
-df_rated = compute_ratings(df)
-
-# ── Étape 3 : Voir les meilleurs milieux ──
-print(get_top_players(df_rated, position="MF", top_n=10))
-
-# ── Étape 4 : Trouver des pépites (bonne affaire < 20M) ──
-df_valued = compute_value_score(df_rated)
-pepites = find_undervalued(df_valued, position="MF", max_price=20)
-print(pepites)
-
-# ── Étape 5 : Optimiser son XI avec un budget de 500M ──
-result = optimize_xi(df_rated, budget=500)
-print_xi(result)
+# Calculer les scores et afficher les tops
+python -m src.analysis.player_rating
 ```
 
 ---
 
-## 📊 Exemple de sortie
+## 📊 Insights clés (notebook exploratoire)
 
-```
-==================================================
-  🏆 XI OPTIMAL — Formation 4-3-3
-  Score total : 75.40 | Budget utilisé : 487.0M
-==================================================
-  [GK] Areola              West Ham        ★ 7.2   10M
-  [DF] Saliba              Arsenal         ★ 8.1   30M
-  [DF] Truffert            Rennes          ★ 7.4   12M
-  ...
-```
+- **G+A** (buts + passes) est la stat FBref la plus corrélée avec la note MPG (r = 0.49)
+- **Beraldo (PSG)** : 6M€ pour un score de 8.32 → meilleure affaire défensive
+- **Pagis (Lorient)** : meilleur attaquant de la saison (score 8.53, 21M€)
+- **Paris FC** domine la forme récente en fin de saison
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Structure initiale du projet
-- [x] Collecte via API MPG officielle (cotations, notes, historique)
-- [x] Croisement MPG × FBref (stats avancées)
-- [x] Module de scoring composite par poste
+- [x] Collecte via API MPG officielle
+- [x] Croisement MPG × FBref (520 joueurs)
+- [x] Scoring composite par poste
 - [x] Détection de pépites et analyse de forme
-- [x] Optimisation du XI par programmation linéaire
-- [x] Tests d'intégration complets
-- [x] Notebook de démonstration Jupyter
-- [ ] Interface CLI interactive
+- [x] Optimiseur XI avec contraintes budget/formation
+- [x] Interface Streamlit déployée en ligne
+- [x] Notebook d'analyse exploratoire
+- [ ] Amélioration des poids de scoring via calibration
 - [ ] Gestion des championnats étrangers (Liga, Premier League...)
-
----
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-Tu as une idée d'amélioration ? Ouvre une **issue** pour en discuter,
-ou directement une **pull request** si tu as déjà codé quelque chose.
+- [ ] Prédiction de note pour la prochaine journée (ML)
 
 ---
 
