@@ -430,7 +430,7 @@ with tab3:
             excluded_input = st.text_input("Noms séparés par des virgules", key="excluded",
                                             placeholder="Ex: Greenwood, Dembélé")
 
-    locked_players   = [n.strip() for n in locked_input.split(",") if n.strip()] if "locked_input" in dir() else []
+    locked_players = [n.strip() for n in locked_input.split(",") if n.strip()]
     excluded_players = [n.strip() for n in excluded_input.split(",") if n.strip()] if "excluded_input" in dir() else []
 
     # ── Bouton d'optimisation ──
