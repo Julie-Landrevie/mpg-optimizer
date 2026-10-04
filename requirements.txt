@@ -14,7 +14,7 @@ pandas>=2.0.0
 numpy>=1.24.0
 
 # ── OPTIMISATION XI ──────────────────────────────────────────
-pulp>=2.7.0
+pulp>=2.7,<3
 
 # ── VISUALISATION (notebook) ─────────────────────────────────
 matplotlib>=3.7.0
