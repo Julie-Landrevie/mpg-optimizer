@@ -81,7 +81,7 @@ Passe 1 : prénom + nom exact     → 417 joueurs
 Passe 2 : nom seul unique        →  67 joueurs
 Passe 3 : lookup dictionnaire    →  36 joueurs
 ─────────────────────────────────────────────
-Total : 520 joueurs croisés sur 514 (était 27 avant)
+Total : 520 joueurs croisés (contre 27 avant)
 ```
 
 ---
