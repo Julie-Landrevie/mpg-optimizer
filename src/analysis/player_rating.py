@@ -167,7 +167,12 @@ def compute_ratings(df: pd.DataFrame, min_minutes: int = 0) -> pd.DataFrame:
         df = df.copy()
 
     # --- Filtrage sur avg_rating disponible ---
-    # On ne peut pas scorer un joueur sans note MPG
+    # On ne peut pas scorer un joueur sans note MPG.
+    # Sans colonne avg_rating du tout (API MPG indisponible), on renvoie un tableau vide
+    # avec les colonnes attendues plutôt que de planter.
+    if "avg_rating" not in df.columns:
+        logger.warning("⚠️ Colonne avg_rating absente : aucun joueur ne peut être noté.")
+        return df.iloc[0:0].assign(mpg_score=pd.Series(dtype=float), rank=pd.Series(dtype=int))
     df = df[df["avg_rating"].notna()].copy()
     logger.info(f"Joueurs avec note MPG disponible : {len(df)}")
 
